@@ -1,5 +1,6 @@
 # JavaEeStudyProject
 教程位置：https://www.bilibili.com/video/av37033342
+<br>
 相關筆記位置-->google doc
 
 <h4>2018-12-11	開始 Java EE 的學習</h4>
@@ -7,7 +8,7 @@
 			【N】01-servlet学习-HTTP协议的概念作用和特点<br>
 			【N】02-servlet学习-HTTP协议的交互流程和请求格式和请求方式<br>
 			【N】03-servlet学习-HTTP协议的响应格式和常见状态码<br>
-			【N】04-servlet学习-服务器介绍&tomcat服务器的安装和验证<br>
+			【N】04-servlet学习-服务器介绍和tomcat服务器的安装和验证<br>
 			【S】05-servlet学习-第一个web项目<br>
 		</p>
 <h4>2018-12-12	建立local專案和git專案</h4>

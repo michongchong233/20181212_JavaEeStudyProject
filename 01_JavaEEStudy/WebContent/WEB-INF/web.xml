@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 配置serverlet -->
+<web-app>
+	<!-- 配置serverlet路徑 -->
+	<serverlet>
+		<serverlet-name>01_test</serverlet-name>
+		<serverlet-class>com.mickey.T01_serverlet.T01_FirstServerletClass</serverlet-class>
+	</serverlet>
+	<!-- 配置訪問方式 -->
+	<serverlet-mapping>
+		<serverlet-name>01_test</serverlet-name>
+		<url-pattern>\T01_FirstServerletPage</url-pattern>
+	</serverlet-mapping>	
+</web-app>

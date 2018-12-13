@@ -21,3 +21,14 @@
 			【S】11-servlet学习-request对象的介绍和获取请求头信息<br>
 			【S】12-servlet学习-request对象获取请求头数据和用户数据(需要剪辑)<br>
 		</p>
+<h4>2018-12-13	編寫課程筆記及上課綀習</h4>
+		<p>
+			【N】05-servlet学习-第一个web项目<br>
+				http://localhost:8080/01_JavaEEStudy/01_test<br>
+			【N】06-servlet学习-servlet的概念和介绍<br>
+			【N】07-servlet学习-servlet的访问流程<br>
+			【N】08-servlet学习-Servlet的生命周期<br>
+				http://localhost:8080/01_JavaEEStudy/02_test<br>
+			【N】09-Servlet学习-service方法和doGet方法和doPost方法的使用和区别<br>
+			
+		</p>

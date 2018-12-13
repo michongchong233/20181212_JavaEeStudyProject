@@ -12,7 +12,7 @@ public class T01_FirstServerletClass extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String printStr = "get a new request!!";
-		System.out.println(printStr);
 		resp.getWriter().write(printStr);
+		System.out.println(printStr);
 	}
 }

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="method="""><!-- localhost:8080/02_test/method -->
+	<form action="method=""><!-- localhost:8080/02_test/method -->
 		¥Î¤á¦W¡G<input type="text" name="uname" value=""><br>
 		±K½X¡G<input type="text" name="pwd" value=""><br>
 		<input type="submit" value="½T»{">

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <servlet>
-    <servlet-name>01_test</servlet-name>
-    <servlet-class>com.mickey.T01_serverlet.T01_FirstServerletClass</servlet-class>
-  	<load-on-startup>1</load-on-startup>
+    <servlet-name>05_test</servlet-name>
+    <servlet-class>com.mickey.T01_serverlet.T05_FirstServerletClass</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>01_test</servlet-name>
-    <url-pattern>/01_test</url-pattern>
+    <servlet-name>05_test</servlet-name>
+    <url-pattern>/05_test</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>02_test</servlet-name>
-    <servlet-class>com.mickey.T01_serverlet.T02_autoAddServlet</servlet-class>
+    <servlet-name>08_test</servlet-name>
+    <servlet-class>com.mickey.T01_serverlet.T08_autoAddServlet</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>02_test</servlet-name>
-    <url-pattern>/02_test</url-pattern>
+    <servlet-name>08_test</servlet-name>
+    <url-pattern>/08_test</url-pattern>
   </servlet-mapping>
 </web-app>

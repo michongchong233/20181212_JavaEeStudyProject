@@ -1,0 +1,53 @@
+[33mcommit a84a732d0d02a2c847f616c3d3d8f3d50426588a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31m20181212_JavaEeStudyProject/master[m[33m)[m
+Author: Mickey Huang <a0909@Y180705NB01.iead.local>
+Date:   Fri Dec 14 13:51:12 2018 +0800
+
+    modify java class name to study class name
+
+[33mcommit f7836a977ac5e8b31567eef0b525c7fceaf99ac8[m
+Author: Mickey Huang <a0909@Y180705NB01.iead.local>
+Date:   Thu Dec 13 16:37:48 2018 +0800
+
+    add 05 to 09 note
+
+[33mcommit 77b0cfb54946ca0d1bb0baf93bb7073e003bbf8a[m
+Author: Mickey Huang <a0909@Y180705NB01.iead.local>
+Date:   Thu Dec 13 11:18:55 2018 +0800
+
+    fix some 'run on server' error
+
+[33mcommit 44948f97192624e90574ef2b17f2684d2ee84476[m
+Author: Mickey Huang <a0909@Y180705NB01.iead.local>
+Date:   Wed Dec 12 17:56:50 2018 +0800
+
+    add first serverlet .jsp and .java
+
+[33mcommit 6caad291663dab3f5e8b5d330a5e05cb84c36256[m
+Author: Mickey Huang <a0909@Y180705NB01.iead.local>
+Date:   Wed Dec 12 16:57:28 2018 +0800
+
+    update text format
+
+[33mcommit 308b921264edab5e1b174145274fb66e75fe57a6[m
+Author: michongchong233 <a0909521623@gmail.com>
+Date:   Wed Dec 12 16:53:37 2018 +0800
+
+    update text formate for README.md
+
+[33mcommit 99d00bf4bd185156ef54349cbc43ffce183ee324[m
+Author: michongchong233 <a0909521623@gmail.com>
+Date:   Wed Dec 12 16:39:47 2018 +0800
+
+    update study note for README
+
+[33mcommit 1b0bb99f54ad423cd6abf16c4ad90028c3e65f58[m
+Author: a0909 <a0909@Y180705NB01.iead.local>
+Date:   Wed Dec 12 16:25:03 2018 +0800
+
+    workplace setting
+
+[33mcommit aafb004d105e850ba101216de976f227238cb3db[m
+Author: Mickey Huang <a0909@Y180705NB01.iead.local>
+Date:   Wed Dec 12 16:12:31 2018 +0800
+
+    first test commit

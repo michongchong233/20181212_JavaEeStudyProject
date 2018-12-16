@@ -8,13 +8,4 @@
     <servlet-name>05_test</servlet-name>
     <url-pattern>/05_test</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>08_test</servlet-name>
-    <servlet-class>com.mickey.T01_serverlet.T08_autoAddServlet</servlet-class>
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>08_test</servlet-name>
-    <url-pattern>/08_test</url-pattern>
-  </servlet-mapping>
 </web-app>

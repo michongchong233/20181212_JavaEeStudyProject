@@ -9,53 +9,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class T08_autoAddServlet {
+/**
+ * Servlet implementation class T02_autoAddServlet
+ */
+@WebServlet(urlPatterns = { "/08_test" }, initParams = { @WebInitParam(name = "08_test", value = "try auto add") })
+public class T08_autoAddServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
 	/**
-	 * Servlet implementation class T02_autoAddServlet
+	 * @see HttpServlet#HttpServlet()
 	 */
-	@WebServlet(urlPatterns = { "/02_test" }, initParams = { @WebInitParam(name = "02_test", value = "try auto add") })
-	public class T02_autoAddServlet extends HttpServlet {
-		private static final long serialVersionUID = 1L;
+	public T08_autoAddServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-		/**
-		 * @see HttpServlet#HttpServlet()
+	@Override
+	public void init() {
+		/*
+		 * 從第一次調用到服務器關閉 如果在web.xml的servlet中配置了load-on-sartup，生命周期就是從服務器啟動到服務器關閉
 		 */
-		public T02_autoAddServlet() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
+		System.out.println("servlet初始化完成");
+	}
 
-		@Override
-		public void init() {
-			/*
-			 * 從第一次調用到服務器關閉 如果在web.xml的servlet中配置了load-on-sartup，生命周期就是從服務器啟動到服務器關閉
-			 */
-			System.out.println("servlet初始化完成");
-		}
+	@Override
+	public void destroy() {
+		System.out.println("服務器關閉時執行");
+	}
 
-		@Override
-		public void destroy() {
-			System.out.println("服務器關閉時執行");
-		}
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
-		/**
-		 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-		 *      response)
-		 */
-		protected void doGet(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			// TODO Auto-generated method stub
-			response.getWriter().append("Served at: ").append(request.getContextPath());
-		}
-
-		/**
-		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-		 *      response)
-		 */
-		protected void doPost(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			// TODO Auto-generated method stub
-			doGet(request, response);
-		}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 }

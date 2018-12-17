@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class T02_autoAddServlet
+ * Servlet implementation class T08_autoAddServlet
  */
 @WebServlet(urlPatterns = { "/08_test" }, initParams = { @WebInitParam(name = "08_test", value = "try auto add") })
 public class T08_autoAddServlet extends HttpServlet {
@@ -21,9 +21,16 @@ public class T08_autoAddServlet extends HttpServlet {
 	 */
 	public T08_autoAddServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		String printStr = "i'm server method!!";
+		System.out.println(printStr);
+//		super.service(req, resp);
+		//從覆寫的service方法進入父類的service方法，在service方法處理完後，會再次根據請求方式響應doGet和doPost方法，所以一般情況下不會覆寫service中調用super.service(req, resp)，以避免出現405錯誤
+	}
+	
 	@Override
 	public void init() {
 		/*
@@ -43,8 +50,8 @@ public class T08_autoAddServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("I'm doGet method!!");
 	}
 
 	/**
@@ -53,7 +60,7 @@ public class T08_autoAddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+//		doGet(request, response);
+		System.out.println("I'm doPost method!!");
 	}
 }

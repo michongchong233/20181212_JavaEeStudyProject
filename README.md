@@ -35,7 +35,7 @@
 			【S】13-servlet学习-response对象学习<br>
 		</p>
 <h4>2018-12-16	加入另一台電腦帳號</h4>
-<h4>2018-12-17	編寫課程筆記及上課綀習以及修正web.xml的錯誤</h4>
+<h4>2018-12-17	編寫課程筆記及上課綀習</h4>
 		<p>
 			【N】09-Servlet学习-service方法和doGet方法和doPost方法的使用和区别<br>
 			http://localhost:8080/01_JavaEEStudy/T01_servlet/T09_getAndPost.jsp<br>
@@ -43,7 +43,9 @@
 			【N】11-servlet学习-request对象的介绍和获取请求头信息<br>
 			【N】12-servlet学习-request对象获取请求头数据和用户数据(需要剪辑)<br>
 			http://localhost:8080/01_JavaEEStudy/T01_servlet/T11_RequestClass.jsp<br>
+		</p>
+<h4>2018-12-18	電腦安裝Git Desktop</h4>
+        <p>
 			
 		</p>
-        
-        
+		

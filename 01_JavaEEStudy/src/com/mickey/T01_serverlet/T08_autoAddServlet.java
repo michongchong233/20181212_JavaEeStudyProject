@@ -16,13 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 public class T08_autoAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public T08_autoAddServlet() {
-		super();
-	}
-
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		String printStr = "i'm server method!!";
@@ -44,20 +37,12 @@ public class T08_autoAddServlet extends HttpServlet {
 		System.out.println("服務器關閉時執行");
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("I'm doGet method!!");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		doGet(request, response);

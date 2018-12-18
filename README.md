@@ -46,6 +46,10 @@
 		</p>
 <h4>2018-12-18	電腦安裝Git Desktop</h4>
         <p>
-			
+			【N】13-servlet学习-response对象学习<br>
+				http://localhost:8080/01_JavaEEStudy/13_test<br>
+			【N】14-servlet学习-登录练习(登录页面&登录请求)
+				http://localhost:8080/01_JavaEEStudy/14_01_test<br>
+			【S】15-servlet学习-登录练习(登录请求处理)
 		</p>
 		

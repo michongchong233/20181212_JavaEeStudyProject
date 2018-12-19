@@ -53,14 +53,22 @@ public class T14_01_LoginPageServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		//獲取請求信息，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
 		//處理請求，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
+		//獲取request作用域數據(T18)
+		String errorMessage = (String)request.getAttribute("errorMessage");
+		
 		//響應處理結果，使用html
 		response.getWriter().write("<html>");
 		response.getWriter().write("<head>");
 		response.getWriter().write("</head>");
 		response.getWriter().write("<body>");
-		response.getWriter().write("<form action='14_02_test' method='get'>");
+		response.getWriter().write("<form action='14_02_test' method='post'>");
 		response.getWriter().write("用戶名：<input type='text' name='uname' value=''><br>");
 		response.getWriter().write("密碼：<input type='password' name='password' value=''><br>");
+		
+		//登入失敗時才顯示錯誤信息
+		if(errorMessage != null) {
+			response.getWriter().write("<p style='color: red'>" + errorMessage + "</p>");			
+		}
 		response.getWriter().write("<input type='submit' value='登入'>");
 		response.getWriter().write("</form>");
 		response.getWriter().write("</body>");

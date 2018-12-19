@@ -51,10 +51,20 @@ public class T14_02_LoginResponseServlet extends HttpServlet {
 		System.out.println(user);
 		//響應處理結果
 		if(user != null) {
+			System.out.println(uname + "登入成功");
 			response.getWriter().write("登入成功");
 		} else {
-			response.getWriter().write("登入失敗");
+			System.out.println(uname + "登入失敗");
+			
+			//使用request對象實現不同Servlet的數據流轉(T18)
+			//request生命周期-->一次請求內都有效
+			request.setAttribute("errorMessage", "用戶名或密碼錯誤");
+			/**
+			請求轉發(T17)
+			作用：實現多個servlet聯動操作處理請求，可避免代碼冗余，認servlet的職責更加明確
+			特點：一次請求、地址欄信息不改變
+			 */
+			request.getRequestDispatcher("14_01_test").forward(request, response);
 		}
 	}
-
 }

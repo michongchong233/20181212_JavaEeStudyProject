@@ -56,7 +56,9 @@
         <p>
 			【N】15-servlet学习-登录练习(登录请求处理)<br>
 			【N】16-servlet学习-请求乱码解决&流程总结<br>
-			【S】17-servlet学习-请求转发<br>
+			【N】17-servlet学习-请求转发<br>
+			【N】18-servlet学习-response对象的作用域<br>
+			【N】19-servlet学习-<br>
 			
 		</p>
 		

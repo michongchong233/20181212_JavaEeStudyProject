@@ -2,7 +2,6 @@ package com.mickey.T01pojo;
 
 /**
  * 存儲用戶數據
- * @author a0909
  *
  */
 public class T15_02_LoginUser {

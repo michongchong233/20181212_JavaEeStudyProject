@@ -77,6 +77,7 @@
 			【N】25-servlet学习-session的特点和使用<br>
 				http://localhost:8080/01_JavaEEStudy/25_test<br>
 			【N】26-servlet学习-session的数据流转和总结<br>
+				http://localhost:8080/01_JavaEEStudy/26_test<br>
 		</p>
 		
 		

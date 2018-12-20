@@ -55,11 +55,15 @@
 <h4>2018-12-19	編寫課程筆記及上課綀習</h4>
         <p>
 			【N】15-servlet学习-登录练习(登录请求处理)<br>
+				http://localhost:8080/01_JavaEEStudy/14_01_test<br>
 			【N】16-servlet学习-请求乱码解决&流程总结<br>
 			【N】17-servlet学习-请求转发<br>
+				http://localhost:8080/01_JavaEEStudy/14_01_test<br>
 			【N】18-servlet学习-response对象的作用域<br>
 			【N】19-servlet学习-重定向学习<br>
+				http://localhost:8080/01_JavaEEStudy/14_01_test<br>
 			【N】20-servlet学习-Cookie介绍&使用(创建和设置有效期)<br>
+				http://localhost:8080/01_JavaEEStudy/20_test<br>
 		</p>
 <h4>2018-12-20	編寫課程筆記及上課綀習</h4>
         <p>

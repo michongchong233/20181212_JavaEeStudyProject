@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
 Cookie學習：
+瀏覽器端的數據存儲技術
 作用：解決了不同請求的數據共享問題
 使用：
 	1.創建Cookie對象

@@ -71,7 +71,12 @@
 				http://localhost:8080/01_JavaEEStudy/21_test<br>
 			【N】22-servlet学习-Cookie使用之三天免登陆(一)<br>
 				http://localhost:8080/01_JavaEEStudy/22_test<br>
-			
+			【N】23-servlet学习-Cookie使用之三天免登陆(二)<br>
+			【N】24-servlet学习-session介绍和原理<br>
+				http://localhost:8080/01_JavaEEStudy/24_test<br>
+			【N】25-servlet学习-session的特点和使用<br>
+				http://localhost:8080/01_JavaEEStudy/25_test<br>
+			【N】26-servlet学习-session的数据流转和总结<br>
 		</p>
 		
 		

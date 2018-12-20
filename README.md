@@ -67,7 +67,11 @@
 		</p>
 <h4>2018-12-20	編寫課程筆記及上課綀習</h4>
         <p>
-			【S】21-servlet学习-Cookie设置有效期和Cookie信息的获取<br>
+			【N】21-servlet学习-Cookie设置有效期和Cookie信息的获取<br>
+				http://localhost:8080/01_JavaEEStudy/21_test<br>
+			【N】22-servlet学习-Cookie使用之三天免登陆(一)<br>
+				http://localhost:8080/01_JavaEEStudy/22_test<br>
+			
 		</p>
 		
 		

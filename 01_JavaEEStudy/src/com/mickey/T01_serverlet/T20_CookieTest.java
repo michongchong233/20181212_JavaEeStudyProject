@@ -16,14 +16,20 @@ Cookie學習：
 使用：
 	1.創建Cookie對象
 		Cookie c = new Cookie("computer", "thinkpad");
-	2.響應Cookie信息給戶端
+	2.設置Cookie
+		設置有效期：c2.setMaxAge(3*24*3600);//3天
+		設置有效路徑：c2.setPath("/01_JavaEEStudy/21_test");//http://localhost:8080/01_JavaEEStudy/21_test
+	3.響應Cookie信息給戶端
 		response.addCookie(c);
+	4.獲取Cookie信息數組
+		Cookie[] cookies = request.getCookies();
 	注意：一個cookie對象儲存一組鍵值對
 特點：
 	瀏覽器端的數據存儲技術
 	存儲的數據聲明在服務器端
+	默認是Cookie信息每次請求都會附帶，除非設置有效路徑
 	臨時存儲：存儲在瀏覽器的運行內存中，瀏覽器關閉即失效
-	定時存儲：設置了Cookie的有效期，存儲在客戶端的硬盤中，在有效期內符合路徑要求的請求都會附帶該信息
+	定時存儲：設置了Cookie的有效期，存儲在瀏覽器端的歷史數據中，在有效期內符合路徑要求的請求都會附帶該信息
  */
 @WebServlet(
 		urlPatterns = { "/20_test" }, 
@@ -46,8 +52,11 @@ public class T20_CookieTest extends HttpServlet {
 		Cookie c2 = new Cookie("keyboard", "ASUS");
 		//設置Cookie有效期(秒)，否則默認Cookie瀏覽器關閉即失效
 		c2.setMaxAge(3*24*3600);//3天
+		//設置有效路徑
+		c2.setPath("/01_JavaEEStudy/21_test");//http://localhost:8080/01_JavaEEStudy/21_test
 		//響應Cookie信息
 		response.addCookie(c);
+		response.addCookie(c2);
 		//響應處理結果
 		
 	}

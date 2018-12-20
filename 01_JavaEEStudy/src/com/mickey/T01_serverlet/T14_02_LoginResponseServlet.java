@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,6 +54,13 @@ public class T14_02_LoginResponseServlet extends HttpServlet {
 		if(user != null) {
 			System.out.println(uname + "登入成功");
 			request.setAttribute("loginUser", user.getUname());
+			//設置Cookie信息
+			String uid = "" + user.getUid();
+			Cookie uCookie = new Cookie("uid", uid);
+			uCookie.setMaxAge(3*24*3600);//設置有效期限為三天
+			uCookie.setPath("/01_JavaEEStudy/22_test");//設置Cookie有效路徑
+			response.addCookie(uCookie);//增加Cookie至響應信息中
+			
 //			request.getRequestDispatcher("19_test").forward(request, response);//請求轉發會有重覆提交的問題
 			/**
 			重定向

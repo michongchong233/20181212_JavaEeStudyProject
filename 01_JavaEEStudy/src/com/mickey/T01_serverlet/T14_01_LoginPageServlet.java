@@ -61,7 +61,7 @@ public class T14_01_LoginPageServlet extends HttpServlet {
 		response.getWriter().write("<head>");
 		response.getWriter().write("</head>");
 		response.getWriter().write("<body>");
-		response.getWriter().write("<form action='14_02_test' method='post'>");
+		response.getWriter().write("<form action='14_02_test' method='get'>");
 		response.getWriter().write("¥Î¤á¦W¡G<input type='text' name='uname' value=''><br>");
 		response.getWriter().write("±K½X¡G<input type='password' name='password' value=''><br>");
 		

@@ -28,7 +28,7 @@ public class T15_05_LoginDAOImpl implements T15_04_LoginDAO {
 			//獲取連接對象
 			String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 			String userName = "root";
-			String userPassword = "1234";//要記得改自己root的密碼
+			String userPassword = "s70103ss";//要記得改自己root的密碼
 			conn = DriverManager.getConnection(url, userName, userPassword);
 			//創建SQL命令
 			String sql = "select * from T14_login where uname=? and password=?;";

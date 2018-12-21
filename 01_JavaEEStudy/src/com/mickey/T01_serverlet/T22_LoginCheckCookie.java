@@ -25,15 +25,14 @@ import com.mickey.serverImp.T15_03_LoginServiceImpl;
 		})
 public class T22_LoginCheckCookie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("rawtypes")
+	Class myClass = this.getClass();
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loginPageUri = "14_01_test";
 		String wellcomePageUri = "19_test";
-		
-		//設置請求編碼格式
-		request.setCharacterEncoding("UTF-8");
-		//設置響應編碼格式
-		response.setContentType("text/html;charset=utf-8");
+
+		AllUseUtil.setRequestResponseEcoding(request, response);//設置請求、響應編碼格式
 		//獲取請求信息：取得Cookie
 		Cookie[] cookies = request.getCookies();
 		//處理請求信息
@@ -43,7 +42,8 @@ public class T22_LoginCheckCookie extends HttpServlet {
 				String uid = "";
 				if(cookie.getName().equals("uid")) {
 					uid = uid + cookie.getValue();
-					System.out.println(cookie.getName() + " --> " + uid);
+
+					AllUseUtil.getLogger(myClass, "cookie.getName()"+cookie.getName(), "uid="+uid);
 					//開始校驗uid信息在數據庫是否存在
 					T15_01_LoginService ls = new T15_03_LoginServiceImpl();
 					T15_02_LoginUser user = ls.checkUidService(cookie.getValue());
@@ -55,18 +55,17 @@ public class T22_LoginCheckCookie extends HttpServlet {
 						session.setAttribute("uid", user.getUid());
 						session.setAttribute("uname", user.getUname());
 						session.setAttribute("password", user.getPassword());
-						System.out.println(this.getClass().getName() + " || JSESSIONID=" + session.getId() + " || " + user.toString() + " || wellcome back");
-						
+						AllUseUtil.getLogger(myClass, "JSESSIONID="+session.getId(), user.toString(), "wellcome back");
 						//cookie有uid並且此uid在數據庫也存在時進入歡迎頁面
 						response.sendRedirect(wellcomePageUri);
 					}else {
-						System.out.println("查無此用戶，要重新登入");
+						AllUseUtil.getLogger(myClass, "查無此用戶，要重新登入");
 						response.sendRedirect(loginPageUri);
 					}
 				}
 			}
 		}else {
-			System.out.println("首次登入");
+			AllUseUtil.getLogger(myClass, "首次登入");
 			response.sendRedirect(loginPageUri);
 		}
 	}

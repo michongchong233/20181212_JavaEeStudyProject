@@ -33,42 +33,30 @@ import com.mickey.serverImp.T15_03_LoginServiceImpl;
 		})
 public class T14_02_LoginResponseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("rawtypes")
+	Class myClass = this.getClass();
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//設置請求編碼格式(post用)，在獲得請求信息前轉編碼格式
-		request.setCharacterEncoding("UTF-8");
-		
-		//設置響應編碼格式
-		response.setContentType("text/html;charset=utf-8");
-		//獲取請求信息
-		String uname = request.getParameter("uname");
+		AllUseUtil.setRequestResponseEcoding(request, response);//設置請求、響應編碼格式
+		String uname = request.getParameter("uname");//獲取請求信息
 		//使用String轉換編碼格式，解決中文請求亂碼問題，瀏覽器多數默認ISO8859-1，服務器默認UTF-8
 		//用java來轉換，優點是不分get和post都可以用，缺點是當量大時會很麻煩
 //		uname = new String(uname.getBytes("ISO8859-1"),"UTF-8");
 		String password = request.getParameter("password");
-		System.out.println(uname + " --> " + password);
+		AllUseUtil.getLogger(myClass, "uname"+uname, "password"+password);
+		
 		//處理請求信息，獲取業務層對象
 		T15_01_LoginService ls = new T15_03_LoginServiceImpl();
 		T15_02_LoginUser user = ls.checkLoginService(uname, password);
-		System.out.println(user);
+		
 		//響應處理結果
 		if(user != null) {
-			System.out.println(uname + "登入成功");
-			request.setAttribute("loginUser", user.getUname());
-			//設置Cookie信息
-			String uid = "" + user.getUid();
-			Cookie uCookie = new Cookie("uid", uid);
-			uCookie.setMaxAge(3*24*3600);//設置有效期限為三天
-			uCookie.setPath("/01_JavaEEStudy/22_test");//設置Cookie有效路徑
-			response.addCookie(uCookie);//增加Cookie至響應信息中
+			AllUseUtil.getLogger(myClass, user.toString(), "search not null");
+			request.setAttribute("loginUser", "user.getUname()"+user.getUname());
 			
-			//設置Session信息
-			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(10);//設置有效時效，10秒
-			session.setAttribute("uid", user.getUid());
-			session.setAttribute("uname", user.getUname());
-			session.setAttribute("password", user.getPassword());
-			System.out.println(this.getClass().getName() + " || JSESSIONID=" + session.getId() + " || " + user.toString() + " || Login SuCCess");
+			setCookieMessage(response, user, "/01_JavaEEStudy/22_test");//設置Cookie
+			setSessionMessage(request, user);//設置Session信息
+			
 			
 //			request.getRequestDispatcher("19_test").forward(request, response);//請求轉發會有重覆提交的問題
 			/**
@@ -82,7 +70,7 @@ public class T14_02_LoginResponseServlet extends HttpServlet {
 			 */
 			response.sendRedirect("/01_JavaEEStudy/19_test");//相當於http://localhost:8080/01_JavaEEStudy/19_test
 		} else {
-			System.out.println(uname + "登入失敗");
+			AllUseUtil.getLogger(myClass, uname + "登入失敗");
 			
 			//使用request對象實現不同Servlet的數據流轉(T18)
 			//request生命周期-->一次請求內都有效
@@ -92,9 +80,29 @@ public class T14_02_LoginResponseServlet extends HttpServlet {
 			當請求中的表單數據可以重覆提交時，可以用請求轉發
 			作用：實現多個servlet聯動操作處理請求，可避免代碼冗余，認servlet的職責更加明確
 			特點：一次請求、地址欄信息不改變
-			
 			 */
 			request.getRequestDispatcher("14_01_test").forward(request, response);
 		}
 	}
+	
+	//設置Cookie信息
+	private void setCookieMessage(HttpServletResponse response, T15_02_LoginUser user, String path) {
+		String uid = "" + user.getUid();
+		Cookie uCookie = new Cookie("uid", uid);
+		uCookie.setMaxAge(3*24*3600);//設置有效期限為三天
+		uCookie.setPath(path);//設置Cookie有效路徑
+		response.addCookie(uCookie);//增加Cookie至響應信息中
+		AllUseUtil.getLogger(myClass, "setCookieMessage");
+	}
+	
+	//設置Session信息
+	private void setSessionMessage(HttpServletRequest request, T15_02_LoginUser user) {
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(10);//設置有效時效，10秒
+		session.setAttribute("uid", user.getUid());
+		session.setAttribute("uname", user.getUname());
+		session.setAttribute("password", user.getPassword());
+		AllUseUtil.getLogger(myClass, "session.getId()"+session.getId(), "Login Success");
+	}
+	
 }

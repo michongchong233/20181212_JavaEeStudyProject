@@ -21,12 +21,11 @@ import javax.servlet.http.HttpSession;
 		})
 public class T19_LoginSuccessPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("rawtypes")
+	Class myClass = this.getClass();
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//設置請求編碼格式
-		request.setCharacterEncoding("UTF-8");
-		//設置響應編碼格式
-		response.setContentType("text/html;charset=utf-8");
+		AllUseUtil.setRequestResponseEcoding(request, response);//設置請求、響應編碼格式
 		//獲取請求信息，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
 		//處理請求信息，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
 		//獲取request作用域數據
@@ -38,7 +37,7 @@ public class T19_LoginSuccessPage extends HttpServlet {
 		//獲取Session對象數據
 		HttpSession session = request.getSession();
 		if(!session.getId().equals(oldSession)) {//若原Session失效, 返回登入頁面
-			System.out.println(this.getClass().getName() + " || oldSession=" + oldSession + " || JSESSIONID=" + session.getId() + " || NOT EQUALS");
+			AllUseUtil.getLogger(myClass, "oldSession"+oldSession, "session.getId()="+session.getId(), "NOT EQUALS");
 			response.sendRedirect("/01_JavaEEStudy/14_01_test");
 			return;
 		}

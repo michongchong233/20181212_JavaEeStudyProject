@@ -49,9 +49,7 @@ public class T14_01_LoginPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//設置響應編碼格式
-		response.setContentType("text/html;charset=utf-8");
-		//獲取請求信息，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
+		AllUseUtil.setRequestResponseEcoding(request, response);//設置請求、響應編碼格式
 		//處理請求，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
 		//獲取request作用域數據(T18)
 		String errorMessage = (String)request.getAttribute("errorMessage");

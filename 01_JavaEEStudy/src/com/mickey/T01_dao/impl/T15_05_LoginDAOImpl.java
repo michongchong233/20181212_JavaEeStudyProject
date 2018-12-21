@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mickey.T01_dao.T15_04_LoginDAO;
+import com.mickey.T01_serverlet.AllUseUtil;
 import com.mickey.T01pojo.T15_02_LoginUser;
 
 /**
@@ -14,6 +15,8 @@ import com.mickey.T01pojo.T15_02_LoginUser;
  *
  */
 public class T15_05_LoginDAOImpl implements T15_04_LoginDAO {
+	@SuppressWarnings("rawtypes")
+	Class myClass = this.getClass();
 	//連接數據庫需要的信息
 	private String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 	private String userName = "root";
@@ -101,7 +104,7 @@ public class T15_05_LoginDAOImpl implements T15_04_LoginDAO {
 					user.setUid(rs.getInt("uid"));
 					user.setUname(rs.getString("uname"));
 					user.setPassword(rs.getString("password"));
-					System.out.println(user.toString());
+					AllUseUtil.getLogger(myClass, user.toString());
 				}
 			}
 		} catch (SQLException e) {

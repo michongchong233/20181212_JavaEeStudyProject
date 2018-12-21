@@ -83,6 +83,12 @@
         <p>
 			【N】27-servlet学习-session登录练习使用解决null显示问题<br>
 				http://localhost:8080/01_JavaEEStudy/27_test<br>
+			【S】28-servlet学习-ServletContext对象学习<br>
+				http://localhost:8080/01_JavaEEStudy/28_test<br>
+			【】29-servlet学习-ServletContext对象网站计数器<br>
+				http://localhost:8080/01_JavaEEStudy/29_test<br>
+			【】30-servlet学习-servletConfig对象<br>
+				http://localhost:8080/01_JavaEEStudy/30_test<br>
 				
 		</p>
 		

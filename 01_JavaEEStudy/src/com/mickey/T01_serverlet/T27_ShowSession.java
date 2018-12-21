@@ -12,50 +12,56 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 顯示登入成功頁面
+ * 顯示Session內容
  */
 @WebServlet(
-		urlPatterns = { "/19_test" }, 
+		urlPatterns = { "/27_test" }, 
 		initParams = { 
-				@WebInitParam(name = "19_test", value = "19_test")
+				@WebInitParam(name = "27_test", value = "27_test")
 		})
-public class T19_LoginSuccessPage extends HttpServlet {
+public class T27_ShowSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//設置請求編碼格式
+		//設置請求編碼
 		request.setCharacterEncoding("UTF-8");
-		//設置響應編碼格式
+		//設置響應編碼
 		response.setContentType("text/html;charset=utf-8");
-		//獲取請求信息，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
-		//處理請求信息，無論誰來都直接丟出登入頁面(直接響應)，故此部分跳過
-		//獲取request作用域數據
-		String user = (String)request.getAttribute("loginUser");
-		
+		//獲取請求信息
 		Cookie[] cookies = request.getCookies();
 		String oldSession = "";
+		//獲取舊JSESSIONID
 		if(cookies != null) for(Cookie cookie : cookies) if(cookie.getName().equals("JSESSIONID")) oldSession = cookie.getValue();
-		//獲取Session對象數據
+		
 		HttpSession session = request.getSession();
-		if(!session.getId().equals(oldSession)) {//若原Session失效, 返回登入頁面
+		if(!session.getId().equals(oldSession)) {
 			System.out.println(this.getClass().getName() + " || oldSession=" + oldSession + " || JSESSIONID=" + session.getId() + " || NOT EQUALS");
 			response.sendRedirect("/01_JavaEEStudy/14_01_test");
 			return;
 		}
-		String uname = (String) session.getAttribute("uname");
-		
+		System.out.println(this.getClass().getName() + " || uid=" + session.getAttribute("uid") + " || uname=" + session.getAttribute("uname") + " || password=" + session.getAttribute("password"));
+		//處理請求信息
 		//響應處理結果
 		response.getWriter().write("<html>");
 		response.getWriter().write("<head>");
 		response.getWriter().write("</head>");
 		response.getWriter().write("<body>");
-		if(user != null)response.getWriter().write("<h3>Hello! "+ user +" Wellcome come back!!</h3>");
-		if(uname != null)response.getWriter().write("<h3>Hello! "+ uname +" Wellcome come back!!</h3>");
-		response.getWriter().write("<hr>");
-		response.getWriter().write("<form action='27_test'>" + 
-				"<input type='submit' value='Show Session'>" + 
-				"</form>");
+		
+		response.getWriter().write("<table>");
+		response.getWriter().write("<tr>");
+		response.getWriter().write("<td>User Name</td>");
+		response.getWriter().write("<td>" + session.getAttribute("uname") + "</td>");
+		response.getWriter().write("</tr>");
+		response.getWriter().write("<tr>");
+		response.getWriter().write("<td>User Password</td>");
+		response.getWriter().write("<td>" + session.getAttribute("password") + "</td>");
+		response.getWriter().write("</tr>");
+		response.getWriter().write("</table>");
+		
+		response.getWriter().write("</form>");
 		response.getWriter().write("</body>");
 		response.getWriter().write("</html>");
+		
 	}
+
 }

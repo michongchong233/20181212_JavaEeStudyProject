@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mickey.T01_service.T15_01_LoginService;
 import com.mickey.T01pojo.T15_02_LoginUser;
@@ -47,11 +48,17 @@ public class T22_LoginCheckCookie extends HttpServlet {
 					T15_01_LoginService ls = new T15_03_LoginServiceImpl();
 					T15_02_LoginUser user = ls.checkUidService(cookie.getValue());
 					if(user != null) {
+						//處理若用戶關閉瀏覽器但沒清cookie的登入校驗
+						//若Session還在，則將數據庫的用戶信息更新至Session，反之則建立Session並放入數據庫的用戶信息
+						HttpSession session = request.getSession();
+						session.setMaxInactiveInterval(10);
+						session.setAttribute("uid", user.getUid());
+						session.setAttribute("uname", user.getUname());
+						session.setAttribute("password", user.getPassword());
+						System.out.println(this.getClass().getName() + " || JSESSIONID=" + session.getId() + " || " + user.toString() + " || wellcome back");
+						
 						//cookie有uid並且此uid在數據庫也存在時進入歡迎頁面
-						System.out.println("歡迎" + user.getUname() + "用戶回來");
 						response.sendRedirect(wellcomePageUri);
-						//TODO T22，筆記做到一半
-						response.addHeader("uname", user.getUname());
 					}else {
 						System.out.println("查無此用戶，要重新登入");
 						response.sendRedirect(loginPageUri);

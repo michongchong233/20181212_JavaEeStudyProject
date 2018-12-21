@@ -79,6 +79,12 @@
 			【N】26-servlet学习-session的数据流转和总结<br>
 				http://localhost:8080/01_JavaEEStudy/26_test<br>
 		</p>
+<h4>2018-12-21	編寫課程筆記及上課綀習</h4>
+        <p>
+			【N】27-servlet学习-session登录练习使用解决null显示问题<br>
+				http://localhost:8080/01_JavaEEStudy/27_test<br>
+				
+		</p>
 		
 		
 		

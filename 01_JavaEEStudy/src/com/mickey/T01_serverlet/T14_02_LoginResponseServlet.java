@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mickey.T01_service.T15_01_LoginService;
 import com.mickey.T01pojo.T15_02_LoginUser;
@@ -60,6 +61,14 @@ public class T14_02_LoginResponseServlet extends HttpServlet {
 			uCookie.setMaxAge(3*24*3600);//設置有效期限為三天
 			uCookie.setPath("/01_JavaEEStudy/22_test");//設置Cookie有效路徑
 			response.addCookie(uCookie);//增加Cookie至響應信息中
+			
+			//設置Session信息
+			HttpSession session = request.getSession();
+			session.setMaxInactiveInterval(10);//設置有效時效，10秒
+			session.setAttribute("uid", user.getUid());
+			session.setAttribute("uname", user.getUname());
+			session.setAttribute("password", user.getPassword());
+			System.out.println(this.getClass().getName() + " || JSESSIONID=" + session.getId() + " || " + user.toString() + " || Login SuCCess");
 			
 //			request.getRequestDispatcher("19_test").forward(request, response);//請求轉發會有重覆提交的問題
 			/**

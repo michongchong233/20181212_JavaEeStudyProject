@@ -2,6 +2,7 @@ package com.mickey.T01_serverlet;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -56,6 +57,12 @@ public class T22_LoginCheckCookie extends HttpServlet {
 						session.setAttribute("uname", user.getUname());
 						session.setAttribute("password", user.getPassword());
 						AllUseUtil.getLogger(myClass, "JSESSIONID="+session.getId(), user.toString(), "wellcome back");
+						
+						//從Cookie自增的網頁計數器自增
+						ServletContext sc = this.getServletContext();
+						int nums = (sc.getAttribute("nums") != null)?(int)(sc.getAttribute("nums"))+1:1;
+						sc.setAttribute("nums", nums);
+						
 						//cookie有uid並且此uid在數據庫也存在時進入歡迎頁面
 						response.sendRedirect(wellcomePageUri);
 					}else {

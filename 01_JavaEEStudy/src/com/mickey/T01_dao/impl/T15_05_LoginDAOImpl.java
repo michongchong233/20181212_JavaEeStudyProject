@@ -17,7 +17,7 @@ public class T15_05_LoginDAOImpl implements T15_04_LoginDAO {
 	//連接數據庫需要的信息
 	private String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 	private String userName = "root";
-	private String userPassword = "s70103SS*";//要記得改自己root的密碼
+	private String userPassword = "s70103ss";//要記得改自己root的密碼
 		
 	//公用，建立JDBC連接
 	private Connection makeConnection() {

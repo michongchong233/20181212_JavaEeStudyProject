@@ -32,6 +32,9 @@ Cookie學習：
 	臨時存儲：存儲在瀏覽器的運行內存中，瀏覽器關閉即失效
 	定時存儲：設置了Cookie的有效期，存儲在瀏覽器端的歷史數據中，在有效期內符合路徑要求的請求都會附帶該信息
  */
+/**
+ *Cookie設置
+ */
 @WebServlet(
 		urlPatterns = { "/20_test" }, 
 		initParams = { 

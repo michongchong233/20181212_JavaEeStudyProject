@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class T19_LoginSuccessPage
+ * 顯示登入成功頁面
  */
 @WebServlet(
 		urlPatterns = { "/19_test" }, 

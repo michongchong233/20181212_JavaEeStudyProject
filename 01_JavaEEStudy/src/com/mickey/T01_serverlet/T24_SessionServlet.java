@@ -41,6 +41,9 @@ Session失效處理：將用戶請求中的JSESSIONID和後台獲取到的Session對象的JSESSIONID進
 	用戶沒關閉瀏覽器，但Session過時-->處理
 注意：JSESSIONID存儲在了Cookie的臨時存儲空間中，瀏覽器關閉即失效
  */
+/**
+ * 設定Session數據
+ */
 @WebServlet(
 		urlPatterns = { "/24_test" }, 
 		initParams = { 

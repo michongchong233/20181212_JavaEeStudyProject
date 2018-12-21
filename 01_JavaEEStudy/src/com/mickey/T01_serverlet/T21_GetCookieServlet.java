@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-
+ * Cookie的獲取
  */
 @WebServlet(
 		urlPatterns = { "/21_test" }, 
@@ -33,9 +33,5 @@ public class T21_GetCookieServlet extends HttpServlet {
 				System.out.println(cookie.getName() + " --> " + cookie.getValue() + "<br>");
 			}
 		}
-		//處理響應信息
-		//響應處理結果
-		
 	}
-
 }

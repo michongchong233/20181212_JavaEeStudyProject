@@ -83,13 +83,20 @@
         <p>
 			【N】27-servlet学习-session登录练习使用解决null显示问题<br>
 				http://localhost:8080/01_JavaEEStudy/27_test<br>
-			【S】28-servlet学习-ServletContext对象学习<br>
-				http://localhost:8080/01_JavaEEStudy/28_test<br>
-			【】29-servlet学习-ServletContext对象网站计数器<br>
+			【N】28-servlet学习-ServletContext对象学习<br>
+				http://localhost:8080/01_JavaEEStudy/28_01_test<br>
+				http://localhost:8080/01_JavaEEStudy/28_02_test<br>
+			【N】29-servlet学习-ServletContext对象网站计数器<br>
 				http://localhost:8080/01_JavaEEStudy/29_test<br>
-			【】30-servlet学习-servletConfig对象<br>
+			【N】30-servlet学习-servletConfig对象<br>
 				http://localhost:8080/01_JavaEEStudy/30_test<br>
-				
+		</p>
+<h4>2018-12-22	編寫課程筆記及上課綀習</h4>
+        <p>
+			【】31-servlet学习-web.xml文件和server.xml文件<br>
+			【】32-Jsp学习-Jsp的概念和运行原理<br>
+			【】33-Jsp学习-第一个Jsp程序和深入剖析Jsp运行原理<br>
+			【】34-jsp学习-jsp的page指令学习<br>
 		</p>
 		
 		

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-	<!-- 配置全局數據 -->
-	<context-param>
-		<param-name>myTestProgramName</param-name>
-		<param-value>01_JavaEEStudy</param-value>
-	</context-param>
-	<context-param>
-		<param-name>useDb</param-name>
-		<param-value>MySQL</param-value>
-	</context-param>
-	<context-param>
-		<param-name>useServer</param-name>
-		<param-value>Tomcat8.5</param-value>
-	</context-param>
-
+  <context-param>
+    <param-name>myTestProgramName</param-name>
+    <param-value>01_JavaEEStudy</param-value>
+  </context-param>
+  <context-param>
+    <param-name>useDb</param-name>
+    <param-value>MySQL</param-value>
+  </context-param>
+  <context-param>
+    <param-name>useServer</param-name>
+    <param-value>Tomcat8.5</param-value>
+  </context-param>
   <servlet>
     <servlet-name>05_test</servlet-name>
     <servlet-class>com.mickey.T01_serverlet.T05_FirstServerletClass</servlet-class>
@@ -21,5 +19,28 @@
   <servlet-mapping>
     <servlet-name>05_test</servlet-name>
     <url-pattern>/05_test</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>29_test</servlet-name>
+    <servlet-class>com.mickey.T01_serverlet.T29_ServletContextNums</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>29_test</servlet-name>
+    <url-pattern>/29_test</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 配置局部變量 -->
+  <servlet>
+    <servlet-name>30_test</servlet-name>
+    <servlet-class>com.mickey.T01_serverlet.T30_ServletConfigTest</servlet-class>
+    <init-param>
+    	<param-name>tryConfig</param-name>
+    	<param-value>utf-888</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>30_test</servlet-name>
+    <url-pattern>/30_test</url-pattern>
   </servlet-mapping>
 </web-app>

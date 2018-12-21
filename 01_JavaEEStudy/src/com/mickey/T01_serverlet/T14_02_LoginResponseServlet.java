@@ -2,6 +2,7 @@ package com.mickey.T01_serverlet;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +25,8 @@ import com.mickey.serverImp.T15_03_LoginServiceImpl;
 	使用公共配置(get)：
 		步驟1：request.setCharacterEncoding("UTF-8");
 		步驟2：在tomcat的目錄下的conf/server.xml，在Connector標簽中增加屬性useBodyEncodingForURI="true"
+使用ServletContext對象完成網頁計數器
+	在用戶登錄校驗中創建計數器并自增，然後存儲到ServletContext對象中，在主頁面裡取出計數器數據顯示給用戶即可
 
  */
 @WebServlet(
@@ -57,6 +60,11 @@ public class T14_02_LoginResponseServlet extends HttpServlet {
 			setCookieMessage(response, user, "/01_JavaEEStudy/22_test");//設置Cookie
 			setSessionMessage(request, user);//設置Session信息
 			
+			//創建網頁計數器
+			ServletContext sc = this.getServletContext();
+			int nums = (sc.getAttribute("nums") != null)?(int)(sc.getAttribute("nums"))+1:1;
+			sc.setAttribute("nums", nums);
+			AllUseUtil.getLogger(myClass, "計數器="+sc.getAttribute("nums"));
 			
 //			request.getRequestDispatcher("19_test").forward(request, response);//請求轉發會有重覆提交的問題
 			/**

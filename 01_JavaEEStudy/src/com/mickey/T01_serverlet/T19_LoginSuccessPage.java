@@ -2,6 +2,7 @@ package com.mickey.T01_serverlet;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -43,6 +44,11 @@ public class T19_LoginSuccessPage extends HttpServlet {
 		}
 		String uname = (String) session.getAttribute("uname");
 		
+		//獲取計數器
+		ServletContext sc = this.getServletContext();
+		//TODO
+		int nums = (sc.getAttribute("nums")!=null)?(int)sc.getAttribute("nums"):0;
+		
 		//響應處理結果
 		response.getWriter().write("<html>");
 		response.getWriter().write("<head>");
@@ -51,6 +57,7 @@ public class T19_LoginSuccessPage extends HttpServlet {
 		if(user != null)response.getWriter().write("<h3>Hello! "+ user +" Wellcome come back!!</h3>");
 		if(uname != null)response.getWriter().write("<h3>Hello! "+ uname +" Wellcome come back!!</h3>");
 		response.getWriter().write("<hr>");
+		response.getWriter().write("<p>瀏覽計數器：" + nums + "</p>");		
 		response.getWriter().write("<form action='27_test'>" + 
 				"<input type='submit' value='Show Session'>" + 
 				"</form>");

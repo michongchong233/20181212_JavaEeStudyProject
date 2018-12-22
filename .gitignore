@@ -2,3 +2,4 @@
 /.recommenders/
 /Servers/
 .recommenders/index/http___download_eclipse_org_recommenders_models_photon_/segments.gen
+.recommenders/caches/identified-project-coordinates.json

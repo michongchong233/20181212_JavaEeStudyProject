@@ -25,7 +25,7 @@
   <!--APR library loader. Documentation at /docs/apr.html -->
   <Listener SSLEngine="on" className="org.apache.catalina.core.AprLifecycleListener"/>
   <!-- Prevent memory leaks due to use of particular java/javax APIs-->
-  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" classesToInitialize="com.mysql.jdbc.Driver" />
+  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" classesToInitialize="com.mysql.jdbc.Driver"/>
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
   <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
 
@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="01_JavaEEStudy" path="/01_JavaEEStudy" reloadable="true" source="org.eclipse.jst.jee.server:01_JavaEEStudy"/></Host>
+      <Context docBase="02_LoginPracticeForJavaEe" path="/02_LoginPracticeForJavaEe" reloadable="true" source="org.eclipse.jst.jee.server:02_LoginPracticeForJavaEe"/></Host>
     </Engine>
   </Service>
 </Server>

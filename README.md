@@ -98,9 +98,9 @@
 			【N】33-Jsp学习-第一个Jsp程序和深入剖析Jsp运行原理<br>
 			【N】34-jsp学习-jsp的page指令学习<br>
 			【N】35-jsp学习-jsp的局部代码块&全局代码块&脚本段语句<br>
-			【N】36<br>
-			【N】37<br>
-			【】38約看到15分左右<br>
+			【N】36-jsp学习-jsp的静态引入和动态引入学习<br>
+			【N】37-jsp学习-jsp的forward转发标签学习<br>
+			【】38-jsp学习-jsp的九大内置对象学习<br>
 			
 		</p>
 		

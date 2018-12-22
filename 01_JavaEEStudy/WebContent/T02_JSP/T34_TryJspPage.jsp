@@ -45,6 +45,7 @@ JSP的轉發標簽：<jsp:forward page="要轉發的JSP的相對路徑"></jsp:fo
 	特點：相告於Servlet的請求轉發，一次請求，地址欄、信息不改變
 	注意：在轉發標簽的兩個標簽中間除了寫<jsp:param name="附帶屬性的鍵名" value="附帶屬性的內容" />，其他任何字符都會報錯
 		jsp:param會將數據以?的形式拼接在轉發路徑的後面
+
 JSP的九大內置對象：
 	內置對象：JSP文件轉釋成其對應的Servlet文件時自動生成並聲明的變量(在_jspService方法中)，在JSP頁面中直接使用即可
 	注意：內置對象在JSP頁面中使用只能寫在局部代碼塊或腳本段語句來使用，不能用在全局代碼塊中使用
@@ -53,7 +54,34 @@ JSP的九大內置對象：
 		通信控制对象：pageContext对象、session对象、application对象
 		Servlet对象：page对象、config对象
 		错误处理对象：exception对象
-	pageContext：頁面上下文對象，這個對象封存了其他八個內置對象，也就是封存了JSP的運行信息
+	pageContext：頁面上下文對象，這個對象封存了其他八個內置對象，也就是封存了當前JSP的運行信息；當前頁面
+		注意：每個JSP文件單獨用有一個pageContext對象
+	request：封存當前請求數據的對象，由Tomcat服務器創建；一次請求
+	session：用來存儲用戶的不同請求的共享數據；一次會話
+	application：也就是ServletContext對象，一個項目只有一個。存儲用戶共享數據的對象，以及完成其他操作；項目內
+	response：響應對象，用來響應請求處理結果給瀏覽器的對象。設置響應頭，重定向
+	out：響應對象，JSP內部使用。帶有緩沖的響應對象，效率高於response對象
+	page：代表當前JSP的對象，相當於java中的this
+	exception：異常對象。存儲了當前運行的異常信息
+		注意：使用此對象需要在page指定中使用屬性isErrorPage="true"開啟
+	config：也就是ServletConfig。主要是用來獲取web.xml中的配置數據，完成一些初始化數據的讀取
+	
+	四個作用域對象：作用都是數據流轉
+		pageContext：當前頁面；解決了在當前頁面內的數據共享問題。主要是獲取其他內置對象
+		request：一次請求；一次請求的servlet的數據共享。通過請求轉發，將數據流轉給下一個servlet
+		session：一次會話；一個用戶的不同請求的數據共享。將數據從一次請求流轉給其他請求
+		application：項目內；不同用戶的數據共享問題。將數據從一個用戶流轉給其他用戶
+
+JSP的路徑
+	相對路徑：在JSP中資源路徑可以使用相對路徑完成跳轉，但是
+		1.資源的位置不可隨意更改
+		2.需要使用../進行文件夾的跳出，使用比較麻煩
+	【重要】絕對路徑：
+		/虛擬項目名/項目資源路徑
+		注意：在JSP中資源的第一個/表示的是服務器根目錄，相當於localhost:8080
+	使用JSP中自帶的全局路徑：
+		作用：給資源前面添加項目路徑(http://127.0.0.1:8080/虛擬項目名/)
+			相當於絕對路徑
 
 --%>
 	<% //int i = 5/0;//編釋無錯誤但執行錯誤，會轉到errorPage中所指定的頁面 %>
@@ -94,7 +122,13 @@ JSP的九大內置對象：
 	--%>
 	
 	<!-- JSP的九大內置對象 -->
-	<%= request.getAttribute("computer") %>
+	<%= request.getAttribute("computer") %><br>
+	<%-- 
+	<% response.sendRedirect("T37_JspForward.jsp");//頁面重定向 %>
+	 --%>
+	
+	<!-- JSP的路徑 -->
+	<a href="T39_JspPath.jsp">T39_JspPath.jsp</a>
 
 </body>
 </html>

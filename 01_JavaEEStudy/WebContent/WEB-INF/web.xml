@@ -43,4 +43,10 @@
     <servlet-name>30_test</servlet-name>
     <url-pattern>/30_test</url-pattern>
   </servlet-mapping>
+  
+  <!-- 設定開始頁面，項目底下無設定則吃tomcat中的設定 -->
+  <!-- http://localhost:8080/01_JavaEEStudy -->
+  <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+   </welcome-file-list>
 </web-app>

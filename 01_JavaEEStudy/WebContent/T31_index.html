@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>T31_try index.html for web.xml</title>
+</head>
+<body>
+<b>T31_try index.html for web.xml</b>
+web.xml配置
+區別：
+	web項目下的web.xml文件為局部配置，針對本項目的位置
+	Tomcat下的web.xml文件為全局配置，配置公共信息
+內容(核心組件)：
+	全局上下文配置(全局配置參數)
+	Servlet配置
+	過濾器配置
+	監聽器配置
+加載順序：
+	Web容器會按ServletContext -> context-param -> listener -> filter ->servlet
+	這個順序加載組件，這些元素可配置在web.xml文件中的任意位置
+	加載時機：服務器啟動時進行加載
+
+server.xml配置
+核心組件：
+	<Server>
+		<Service>
+			<Connector />
+			<Connector />
+			<Engine>
+				<Host>
+					<Context />
+				</Host>
+			</Engine>
+		</Service>
+	</Server>
+
+<Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+	connectionTimeout：連接時長設定
+	port：Tomcat服務器所使用的端口號
+	protocol：所用的協議
+	redirectPort：若Tomcat所占用的端口號8080有問題，重定向端口號為8443
+<Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
+	AJP：主要做服務器集群(聯動服務器)的協議
+<Engine defaultHost="localhost" name="Catalina">
+	注意：一個服務器只能有一個引擎<Engine></Engine>，若有需要多個引擎則配置多個<Service></Service>
+冷部署：每次修改都要重新部署Tomcat服務器，項目放到webapps資料夾中
+熱部署：每次修改後Tomcat服務器都自動加載修改的部分，項目不用放到webapps資料夾中
+	<Context docBase="01_JavaEEStudy" path="/01_JavaEEStudy" reloadable="true" source="org.eclipse.jst.jee.server:01_JavaEEStudy"/>
+		path：項目虛擬名
+		注意：若用熱部署要刪項目時，一定要記得刪除server.xml的<Context />的配置，否則Tomcat會找不到文件加載導致部署失敗
+
+</body>
+</html>

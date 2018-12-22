@@ -33,6 +33,27 @@ JSP的腳本段語句：<%= 變量或方法 %>
 	特點：幫助我們快速地獲取變量或方法的返回值，作為數據侷應給瀏覽器，相當於out.write(變量或方法);
 	注意：不能在裡面加;，會報錯
 	位置：除JSP語法要求以外的任意位置
+JSP的靜態引入和動態引入：
+	靜態引入：<%@include file="要引入的JSP文件的相對路徑" %>
+		特點：會將引入的JSP文件和當前的JSP文件轉釋成一個Servlet類中，在網頁中也就顯示合并後的顯示效果
+		注意：靜態引入引入的JSP文件不會單獨轉釋成Servlet，當前文件和靜態引入的文件中不能使用java代碼塊的同名變量
+	動態引入：<jsp:include page="要引入的JSP文件的相對路徑"></jsp:include>
+		特點：會將引入的JSP文件單獨轉釋，在當前轉釋的Servlet文件中調用引入的JSP文件的轉釋文件(方法調用方法)，在網頁中顯示合并後的顯示效果
+		注意：動態引入允許文件中聲明同名變量
+	優點：降底JSP代碼的冗余，便於維護和升級
+JSP的轉發標簽：<jsp:forward page="要轉發的JSP的相對路徑"></jsp:forward>
+	特點：相告於Servlet的請求轉發，一次請求，地址欄、信息不改變
+	注意：在轉發標簽的兩個標簽中間除了寫<jsp:param name="附帶屬性的鍵名" value="附帶屬性的內容" />，其他任何字符都會報錯
+		jsp:param會將數據以?的形式拼接在轉發路徑的後面
+JSP的九大內置對象：
+	內置對象：JSP文件轉釋成其對應的Servlet文件時自動生成並聲明的變量(在_jspService方法中)，在JSP頁面中直接使用即可
+	注意：內置對象在JSP頁面中使用只能寫在局部代碼塊或腳本段語句來使用，不能用在全局代碼塊中使用
+	內容：
+		输入输出对象：out对象、response对象、request对象
+		通信控制对象：pageContext对象、session对象、application对象
+		Servlet对象：page对象、config对象
+		错误处理对象：exception对象
+	pageContext：頁面上下文對象，這個對象封存了其他八個內置對象，也就是封存了JSP的運行信息
 
 --%>
 	<% //int i = 5/0;//編釋無錯誤但執行錯誤，會轉到errorPage中所指定的頁面 %>
@@ -55,6 +76,25 @@ JSP的腳本段語句：<%= 變量或方法 %>
 	<!-- JSP的腳本段語句 -->
 	<% out.write("j=" + j); %><%-- 這樣寫太麻煩 --%>
 	<%= "j=" + j %>
+	<hr>
+	
+	<!-- JSP的靜態引入 -->
+	<%@include file="T36_JspStaticInclude.jsp" %>
+	<hr>
+	
+	<!-- JSP的動態引入 -->
+	<jsp:include page="T36_JspActionInclude.jsp"></jsp:include>
+	<hr>
+	
+	<!-- JSP的轉發標簽 -->
+	<%-- 
+	<jsp:forward page="T37_JspForward.jsp">
+		<jsp:param name="computer" value="thinkpad" />
+	</jsp:forward>
+	--%>
+	
+	<!-- JSP的九大內置對象 -->
+	<%= request.getAttribute("computer") %>
 
 </body>
 </html>

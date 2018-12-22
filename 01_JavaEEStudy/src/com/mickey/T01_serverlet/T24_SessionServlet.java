@@ -32,8 +32,18 @@ Session
 	設置Session強制失效
 		hs.invalidate();
 	存儲和獲取數據
-		存儲：
+		存儲：hs.setAttribute("name", name);
 		獲取：
+			Cookie[] cookies = request.getCookies();
+			String oldSessionId = null;
+			if(cookies != null) {
+				for(Cookie cookie : cookies) {
+					if(cookie.getName().equals("JSESSIONID")) {
+						oldSessionId = cookie.getValue();
+						System.out.println("T25_GetSession oldSessionId --> " + oldSessionId);
+					}
+				}
+			}
 		注意：存儲的動作和取出的動作發生在不同的請求中，但是存儲要先於取出執行
 使用時機：一般用戶在登陸web項目時會將用戶的個人信息存儲到Session中，供該用戶的其他請求使用
 Session失效處理：將用戶請求中的JSESSIONID和後台獲取到的Session對象的JSESSIONID進行比對，如果一致則Session沒失效，反之失效。重定向到登錄頁面

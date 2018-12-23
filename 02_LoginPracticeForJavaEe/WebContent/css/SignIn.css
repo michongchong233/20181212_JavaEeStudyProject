@@ -52,3 +52,8 @@ body {
     background-color: #594c4b;
     border-color: #594c4b;
 }
+
+.btn-myStyle:hover{
+    color: #fff;
+	background-color: #826f6e;
+}

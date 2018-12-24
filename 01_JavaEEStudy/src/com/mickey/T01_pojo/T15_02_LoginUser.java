@@ -1,4 +1,4 @@
-package com.mickey.T01pojo;
+package com.mickey.T01_pojo;
 
 /**
  * 存儲用戶數據

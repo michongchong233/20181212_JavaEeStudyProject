@@ -25,8 +25,13 @@
 	      <input type="checkbox" name="remenberMe" value="remenberMe"> Remember me
 	    </label>
 	  </div>
+	  <% 
+	  	String errorMessage = (String)request.getAttribute("errorMessage");
+	  	if(errorMessage != null){ 
+	  %>
+	  	<p style="color:red">Incorrect username or password.</p>
+	  <% } %>
 	  <button class="btn btn-lg btn-myStyle btn-block" type="submit">Sign in</button>
-	  
 	      	<div class="row justify-content-md-center">
 	    		<a href="SignUp.jsp">Sign up</a>
 	    	</div>

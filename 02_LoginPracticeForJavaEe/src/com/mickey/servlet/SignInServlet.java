@@ -40,12 +40,10 @@ public class SignInServlet extends BasicServlet {
 				userCookie.setMaxAge(3*24*3600);//設置Cookie有效期限
 				response.addCookie(userCookie);
 			}
-			System.out.println(user.toString() + " --> success to sign in");
+			response.sendRedirect("DashBoard.jsp");
 		}else{
-			System.out.println("failed to sign in");
+			request.setAttribute("errorMessage", "error");
+			request.getRequestDispatcher("SignIn.jsp").forward(request, response);
 		}
-		
 	}
-
-	
 }

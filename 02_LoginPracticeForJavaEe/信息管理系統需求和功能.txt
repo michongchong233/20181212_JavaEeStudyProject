@@ -18,7 +18,7 @@
 		uid		int(10)		主鍵、非空、自增
 		uname	varchar(50)	非空
 		pwd		varchar(50)	非空
-		sex		char(2)		非空
+		gender		char(2)		非空
 		age		int(3)
 		birth	date
 	代碼規范：

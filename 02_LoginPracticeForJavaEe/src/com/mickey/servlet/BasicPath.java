@@ -4,7 +4,8 @@ public class BasicPath {
 	public static String SignIn = "SignIn.jsp";
 	enum PagePath{
 		SignIn("SignIn.jsp"),
-		SignUp("SignUp.jsp");
+		SignUp("SignUp.jsp"),
+		DashBoard("DashBoard.jsp");
 		
 		private String filePath;
 		

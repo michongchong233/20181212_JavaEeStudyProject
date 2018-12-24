@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDao {
 	private Connection makeConnection() {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 		String userName = "root";
-		String userPassword = "s70103ss";
+		String userPassword = "1234";
 		//聲明JDBC對象
 		Connection conn = null;
 		try {
@@ -47,17 +47,7 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(2, password);
 			//遍歷執行結果
 			rs = ps.executeQuery();
-			if(rs != null) {
-				while(rs.next()) {
-					user = new UserDTO();
-					user.setUid(rs.getInt("uid"));
-					user.setUname(rs.getString("uname"));
-					user.setPassword(rs.getString("password"));
-					user.setGender(rs.getByte("gender"));
-					user.setAge(rs.getInt("age"));
-					user.setBirth(rs.getDate("birth"));
-				}
-			}
+			user = getUserInformation(rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -78,7 +68,53 @@ public class UserDaoImpl implements UserDao {
 	 */
 	@Override
 	public UserDTO checkUserId(int uid) {
-		return null;
+		String query = "select * from T41_UserImformation where uid=?;";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		UserDTO user = null;
+		try {
+			conn = makeConnection();
+			ps = conn.prepareStatement(query);
+			//給占位符賦值
+			ps.setInt(1, uid);
+			//遍歷運行結果
+			rs = ps.executeQuery();
+			user = getUserInformation(rs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 
+	private UserDTO getUserInformation(ResultSet rs) {
+		UserDTO user = null;
+		try {
+			if(rs != null) while(rs.next()) {
+				user = new UserDTO();
+				user.setUid(rs.getInt("uid"));
+				user.setUname(rs.getString("uname"));
+				user.setPassword(rs.getString("password"));
+				user.setGender(rs.getByte("gender"));
+				user.setAge(rs.getInt("age"));
+				user.setBirth(rs.getDate("birth"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+
+	/**
+	 * 建立新用戶
+	 */
+	@Override
+	public void signUpAccount(UserDTO user) {
+		String query = "insert into dbtest.T41_UserImformation (uname, password, gender, age, birth) values (?, ?, ?, ?, ?),";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		//TODO
+		
+	}
 }

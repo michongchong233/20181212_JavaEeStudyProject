@@ -10,15 +10,25 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO checkUserSignIn(String uname, String password) {
 		UserDao checkUserSignIn = new UserDaoImpl();
-		UserDTO user = new UserDTO();
+		UserDTO user = null;
 		user = checkUserSignIn.checkUserSignIn(uname, password);
 		return user;
 	}
 
 	@Override
 	public UserDTO checkUserId(int uid) {
-		UserDTO user = new UserDTO();
+		UserDao checkUserId = new UserDaoImpl();
+		UserDTO user = null;
+		user = checkUserId.checkUserId(uid);
 		return user;
 	}
+
+	@Override
+	public void signUpAccount(UserDTO user) {
+		
+		
+	}
+	
+	
 
 }

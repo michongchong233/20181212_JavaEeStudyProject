@@ -3,11 +3,16 @@ package com.mickey.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
+import com.mickey.dto.UserDTO;
+import com.mickey.service.UserService;
+import com.mickey.service.impl.UserServiceImpl;
 
 /**
  * 共用底層
@@ -32,4 +37,22 @@ public abstract class BasicServlet extends HttpServlet {
 	 */
 	abstract void doService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
+	/**
+	 * 檢查Cookie中是否有正確的uid
+	 */
+	static void checkUidCookie(HttpServletRequest request, HttpServletResponse response, String path) throws ServletException, IOException {
+		//取得cookie的uid，若沒有則為0
+		Cookie[] cookies = request.getCookies();
+		int uid = 0;
+		for(Cookie cookie:cookies) {
+			uid=(cookie.getName().equals("uid")?Integer.parseInt(cookie.getValue()):0);
+		}
+		UserService checkUserId = new UserServiceImpl();
+		UserDTO user = checkUserId.checkUserId(uid);
+		if(user!=null) {
+			response.sendRedirect(path);
+		}else {
+			response.sendRedirect("SignIn.jsp");
+		}
+	}
 }

@@ -61,9 +61,9 @@
 		        <div class="row">
 					<div class="input-group col-md-6 mb-3">
 						<div class="input-group-prepend">
-					    	<label class="input-group-text" for="inputGroupSelect01">Gender</label>
+					    	<label class="input-group-text" for="gender">Gender</label>
 					  	</div>
-						<select class="custom-select" id="inputGroupSelect01">
+						<select class="custom-select" id="gender">
 						    <option selected>Choose...</option>
 						    <option value="1">Male</option>
 						    <option value="2">Female</option>
@@ -73,7 +73,7 @@
   						<div class="input-group-prepend">
     						<span class="input-group-text">Age</span>
   						</div>
-  						<input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+  						<input type="text" class="form-control" id="age" aria-label="Dollar amount (with dot and two decimal places)">
 					</div>
 				</div>
 				
@@ -82,9 +82,9 @@
 						<div class="input-group-prepend">
 						    <span class="input-group-text">Birth</span>
 						</div>
-						<input type="text" placeholder="Year" aria-label="Year" class="form-control">
-						<input type="text" placeholder="Month" aria-label="Month" class="form-control">
-						<input type="text" placeholder="Day" aria-label="Day" class="form-control">
+						<input type="text" id="birthYear" placeholder="Year" aria-label="Year" class="form-control">
+						<input type="text" id="birthMonth" placeholder="Month" aria-label="Month" class="form-control">
+						<input type="text" id="birthDay" placeholder="Day" aria-label="Day" class="form-control">
 					</div>
 				</div>
 	        	<hr class="mb-4">

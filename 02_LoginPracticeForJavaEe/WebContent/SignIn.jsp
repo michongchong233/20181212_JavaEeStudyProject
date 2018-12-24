@@ -19,7 +19,7 @@
 	  <label for="input" class="sr-only">User name</label>
 	  <input type="text" id="uname" class="form-control" placeholder="User name">
 	  <label for="inputPassword" class="sr-only">Password</label>
-	  <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+	  <input type="password" id="password" class="form-control" placeholder="Password">
 	  <div class="checkbox mb-3">
 	    <label>
 	      <input type="checkbox" value="remember-me"> Remember me

@@ -1,3 +1,6 @@
+/*選擇DB*/
+use dbtest;
+
 /*建立用戶表格*/
 create table T41_UserImformation (
 	uid int(10) not null auto_increment,

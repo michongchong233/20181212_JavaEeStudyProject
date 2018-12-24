@@ -2,7 +2,6 @@ package com.mickey.T01_pojo;
 
 /**
  * 存儲用戶數據
- *
  */
 public class T15_02_LoginUser {
 	private int uid;

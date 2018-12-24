@@ -1,8 +1,8 @@
-package com.mickey.service;
+package com.mickey.dao.impl;
 
 import com.mickey.dto.UserDTO;
 
-public interface UserService {
+public interface UserDao {
 	public UserDTO checkUserSignIn(String uname, String password);
 	
 	public UserDTO checkUserId(int uid);

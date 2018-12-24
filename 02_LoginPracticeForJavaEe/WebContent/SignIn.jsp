@@ -16,6 +16,7 @@
     <form class="form-signin" action="SignIn" method="post">
 	  <img class="mb-4" src="image/myLogo.png" alt="myLogo" height="100">
 	  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+	  <input type="hidden" name="oper" value="signIn"><!-- 用於後端判斷執行內容 -->
 	  <label for="input" class="sr-only">User name</label>
 	  <input type="text" name="uname" value="" class="form-control" placeholder="User name">
 	  <label for="inputPassword" class="sr-only">Password</label>

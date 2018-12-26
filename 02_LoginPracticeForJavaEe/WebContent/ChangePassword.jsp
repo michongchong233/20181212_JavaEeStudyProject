@@ -54,7 +54,7 @@
 			  %>
 			  	<p style="color:red">Incorrect username or password.</p>
 			  <% } %>
-			  <button class="btn btn-lg btn-myStyle" type="submit">Confirm</button>
+			  <button class="btn-lg btn-myStyle" type="submit">Confirm</button>
 			</form>
 	      </div>
 	</div>	

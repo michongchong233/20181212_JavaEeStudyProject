@@ -115,8 +115,9 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public UserDTO updatePassword(int uid,String password) {
+	public int updatePassword(int uid,String password) {
 		String query = "update T41_UserImformation set password=? where uid=?;";
+		int updateNum = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
 		conn = makeConnection();
@@ -125,12 +126,20 @@ public class UserDaoImpl implements UserDao {
 			//給占位符賦值
 			ps.setString(1, password);
 			ps.setInt(2, uid);
-			ps.executeUpdate();			
+			updateNum = ps.executeUpdate();			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				//關閉資源
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		return user;
+		return updateNum;
 	}
 
 	/**

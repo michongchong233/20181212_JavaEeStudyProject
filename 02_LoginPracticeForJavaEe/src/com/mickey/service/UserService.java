@@ -11,5 +11,7 @@ public interface UserService {
 	
 	public List<UserDTO> getAllUser();
 	
+	public int changePassword(int uid, String newPassword);
+	
 	public void signUpAccount(UserDTO user);
 }

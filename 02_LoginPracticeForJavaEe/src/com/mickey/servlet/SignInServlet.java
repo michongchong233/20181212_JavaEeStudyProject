@@ -47,7 +47,24 @@ public class SignInServlet extends BasicServlet {
 	}
 	
 	private void changePassword(HttpServletRequest request, HttpServletResponse response) {
-		
+		String newPassword = request.getParameter("newPassword");
+		int uid = ((UserDTO)request.getSession().getAttribute("user")).getUid();
+		System.out.println(newPassword);
+		UserService changePassword = new UserServiceImpl();
+		int updateNum = changePassword.changePassword(uid, newPassword);
+		if(updateNum > 0) {
+			System.out.println("修改密碼成功");
+			request.setAttribute("successMessage", "success");
+			try {
+				request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else {
+			System.out.println("修改密碼失敗");
+		}
 	}
 	
 	/**

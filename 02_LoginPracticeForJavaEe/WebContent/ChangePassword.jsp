@@ -27,7 +27,6 @@
 	<!-- 上方layout使用動態引入 -->
 	<jsp:include page="DashBoard_top.jsp"></jsp:include>
 	
-	<div class="container-fluid">
 	  <div class="row">
 		<!-- 左方layout使用靜態引入 -->
 	    <%@include file="DashBoard_left.jsp" %>
@@ -37,26 +36,26 @@
 	        <h1 class="h2">Change Password</h1>
 	      </div>
 	      <div class="row col-md-6">
-	      	<form class="needs-validation" action="SignIn" method="post">
-			  	<input type="hidden" name="oper" value="signIn"><!-- 用於後端判斷執行內容 -->
+	    	<form class="needs-validation" action="SignIn" method="post" id="fm" target="_top">
+			  	<input type="hidden" name="oper" value="changePwd"><!-- 用於後端判斷執行內容 -->
 			  	<div class="mb-3">
 					<label for="inputPassword">New Password</label>
-					<input type="password" id="newPassword" class="form-control" placeholder="New Password">
+					<input type="password" id="newPwd" name="newPassword" class="form-control" placeholder="New Password">
 				</div>
 				<div class="mb-3">
 					<label for="inputPassword">Confirm Password</label>
-					<input type="password" id="" class="form-control" placeholder="Confirm Password">
+					<input type="password" id="cfPwd" class="form-control" placeholder="Confirm Password">
 				</div>
-		      <hr class="mb-4">
-			  <% 
-			  	String errorMessage = (String)request.getAttribute("errorMessage");
-			  	if(errorMessage != null){ 
-			  %>
-			  	<p style="color:red">Incorrect username or password.</p>
-			  <% } %>
-			  <button class="btn-lg btn-myStyle" type="submit">Confirm</button>
+		      	<hr class="mb-4">
+			  	<% 
+			 		String successMessage = (String)request.getAttribute("successMessage");
+			  		if(successMessage != null){ 
+			  	%>
+			  		<p style="color:red">Update password success.</p>
+			  	<% } %>
+			  	<button class="btn-lg btn-myStyle" type="submit">Confirm</button>
 			</form>
-	      </div>
+	    </div>
 	</div>	
 	
 	<!-- Optional JavaScript -->
@@ -64,5 +63,24 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script>
+		$(function(){
+			//校驗密碼修改
+			$("#fm").submit(function(){
+				if($("#newPwd").val() == ""){//校驗新密碼
+					alert("new password is NOT null.");
+					return false;
+				}else if($("#cfPwd").val() == ""){//校驗確認密碼
+					alert("confirm password is NOT null.");
+					return false;
+				}else if($("#newPwd").val() != $("#cfPwd").val()){//校驗新密碼和確認密碼是否一致
+					alert("new password != confirm password");
+					return false;
+				}else {
+					return true;
+				}
+			})	
+		})    
+    </script>
 </body>
 </html>

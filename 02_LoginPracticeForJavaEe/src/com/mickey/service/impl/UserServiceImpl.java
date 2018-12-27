@@ -34,6 +34,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public int changePassword(int uid, String newPassword) {
+		UserDao changePassword = new UserDaoImpl();
+		return changePassword.updatePassword(uid, newPassword);
+	}
+
+	@Override
 	public void signUpAccount(UserDTO user) {
 		
 	}

@@ -15,7 +15,8 @@ import com.mickey.service.UserService;
 import com.mickey.service.impl.UserServiceImpl;
 
 /**
- * 
+ * 關於用戶的所有servlet
+ * 根據不同操作符調用不同的方法
  */
 @WebServlet(
 		urlPatterns = { "/SignIn" }, 
@@ -29,18 +30,38 @@ public class SignInServlet extends BasicServlet {
 	protected void doService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//獲取操作符
 		String oper = request.getParameter("oper");
+		System.out.println(oper);
 		if(oper.equals("signIn")) {//登入
 			checkUserSignIn(request, response);
 		}else if(oper.equals("out")) {//退出
 			userOut(request, response);
+		}else if(oper.equals("allUser")) {
+			getAllUser(request, response);
 		}else if(oper.equals("reg")) {//注冊
 			
 		}else {
 			System.out.println("沒有找到對應的操作符：" + oper);
 		}
-		
 	}
 	
+	/**
+	 * 處理獲取所有用戶信息請求
+	 */
+	private void getAllUser(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("search all user");
+		UserService getAllUser = new UserServiceImpl();
+		//將全部的用戶信息放到請求中
+		request.setAttribute("users", getAllUser.getAllUser());	
+		try {
+			//轉發請求
+			request.getRequestDispatcher("AllUserInformation.jsp").forward(request, response);
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * 退出請求處理
 	 */

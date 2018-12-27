@@ -1,5 +1,7 @@
 package com.mickey.service.impl;
 
+import java.util.List;
+
 import com.mickey.dao.impl.UserDao;
 import com.mickey.dao.impl.UserDaoImpl;
 import com.mickey.dto.UserDTO;
@@ -24,11 +26,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public List<UserDTO> getAllUser() {
+		List<UserDTO> users = null;
+		UserDao getAllUser = new UserDaoImpl();
+		users = getAllUser.getAllUser();
+		return users;
+	}
+
+	@Override
 	public void signUpAccount(UserDTO user) {
 		
-		
 	}
-	
-	
-
 }

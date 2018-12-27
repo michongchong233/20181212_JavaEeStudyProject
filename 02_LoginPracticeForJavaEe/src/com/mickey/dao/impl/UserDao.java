@@ -7,5 +7,7 @@ public interface UserDao {
 	
 	public UserDTO checkUserId(int uid);
 	
+	public UserDTO updatePassword(String password);
+	
 	public void signUpAccount(UserDTO user);
 }

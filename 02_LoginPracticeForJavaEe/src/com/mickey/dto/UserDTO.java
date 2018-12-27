@@ -1,7 +1,5 @@
 package com.mickey.dto;
 
-import java.util.Date;
-
 /**
  * 存儲用戶數據
  */
@@ -11,12 +9,12 @@ public class UserDTO {
 	private String password;
 	private byte gender;
 	private int age;
-	private Date birth;
+	private String birth;
 	
 	public UserDTO() {
 		super();
 	}
-	public UserDTO(int uid, String uname, String password, byte gender, int age, Date birth) {
+	public UserDTO(int uid, String uname, String password, byte gender, int age, String birth) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
@@ -55,10 +53,10 @@ public class UserDTO {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	@Override

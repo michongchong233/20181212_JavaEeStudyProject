@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import com.mickey.dto.UserDTO;
 
 public class UserDaoImpl implements UserDao {
+	private UserDTO user = null;
 	
 	/**
 	 * 建立MySQL連接
@@ -16,7 +17,7 @@ public class UserDaoImpl implements UserDao {
 	private Connection makeConnection() {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 		String userName = "root";
-		String userPassword = "s70103SS*";
+		String userPassword = "1234";
 		//聲明JDBC對象
 		Connection conn = null;
 		try {
@@ -38,7 +39,6 @@ public class UserDaoImpl implements UserDao {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		UserDTO user = null;
 		try {
 			conn = makeConnection();
 			ps = conn.prepareStatement(query);			
@@ -72,7 +72,6 @@ public class UserDaoImpl implements UserDao {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		UserDTO user = null;
 		try {
 			conn = makeConnection();
 			ps = conn.prepareStatement(query);
@@ -97,11 +96,17 @@ public class UserDaoImpl implements UserDao {
 				user.setPassword(rs.getString("password"));
 				user.setGender(rs.getByte("gender"));
 				user.setAge(rs.getInt("age"));
-				user.setBirth(rs.getDate("birth"));
+				user.setBirth(rs.getDate("birth").toString());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return user;
+	}
+
+	@Override
+	public UserDTO updatePassword(String password) {
+		
 		return user;
 	}
 

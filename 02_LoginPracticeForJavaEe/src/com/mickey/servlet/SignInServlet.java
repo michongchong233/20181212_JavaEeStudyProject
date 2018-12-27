@@ -35,13 +35,19 @@ public class SignInServlet extends BasicServlet {
 			checkUserSignIn(request, response);
 		}else if(oper.equals("out")) {//退出
 			userOut(request, response);
-		}else if(oper.equals("allUser")) {
+		}else if(oper.equals("allUser")) {//查調所有用戶資料
 			getAllUser(request, response);
+		}else if(oper.equals("changePwd")) {//修改密碼
+			changePassword(request, response);
 		}else if(oper.equals("reg")) {//注冊
 			
 		}else {
 			System.out.println("沒有找到對應的操作符：" + oper);
 		}
+	}
+	
+	private void changePassword(HttpServletRequest request, HttpServletResponse response) {
+		
 	}
 	
 	/**

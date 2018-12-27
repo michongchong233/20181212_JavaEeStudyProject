@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
 	private Connection makeConnection() {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 		String userName = "root";
-		String userPassword = "s70103ss";
+		String userPassword = "1234";
 		//聲明JDBC對象
 		Connection conn = null;
 		try {
@@ -115,7 +115,20 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public UserDTO updatePassword(String password) {
+	public UserDTO updatePassword(int uid,String password) {
+		String query = "update T41_UserImformation set password=? where uid=?;";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		conn = makeConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			//給占位符賦值
+			ps.setString(1, password);
+			ps.setInt(2, uid);
+			ps.executeUpdate();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		return user;
 	}

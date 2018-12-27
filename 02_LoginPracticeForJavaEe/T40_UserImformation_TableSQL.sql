@@ -23,3 +23,6 @@ select * from dbtest.T41_UserImformation;
 
 /*查詢用戶編號*/
 select * from dbtest.T41_UserImformation where uid='1';
+
+/*更新密碼*/
+update T41_UserImformation set password='321' where uid=1;

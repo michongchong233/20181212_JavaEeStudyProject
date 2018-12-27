@@ -9,7 +9,7 @@ public interface UserDao {
 	
 	public UserDTO checkUserId(int uid);
 	
-	public UserDTO updatePassword(String password);
+	public UserDTO updatePassword(int uid, String password);
 	
 	public List<UserDTO> getAllUser();
 	

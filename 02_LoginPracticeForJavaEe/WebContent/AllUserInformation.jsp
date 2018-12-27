@@ -47,7 +47,17 @@
 		            <tr>
 		              <td><%= user.getUid() %></td>
 		              <td><%= user.getUname() %></td>
-		              <td><%= user.getGender() %></td>
+		              <% 
+		              	String gender;
+		              	if(user.getGender() == 1){
+		              		gender = "Male";	
+		              	} else if (user.getGender() == 2){
+		              		gender = "Female";
+		              	} else{
+		              		gender = "";
+		              	}
+		              %>
+		              <td><%= gender %></td>
 		              <td><%= user.getAge() %></td>
 		              <td><%= user.getBirth() %></td>
 		            </tr>

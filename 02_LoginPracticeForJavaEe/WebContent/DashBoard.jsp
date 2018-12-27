@@ -43,7 +43,18 @@
 	            <tr>
 	              <td><%= ((UserDTO)request.getSession().getAttribute("user")).getUid() %></td>
 	              <td><%= ((UserDTO)request.getSession().getAttribute("user")).getUname() %></td>
-	              <td><%= ((UserDTO)request.getSession().getAttribute("user")).getGender() %></td>
+	              <% 
+					int userGender = ((UserDTO)request.getSession().getAttribute("user")).getGender();
+		            String gender;
+		            if(userGender == 1){
+		            	gender = "Male";	
+		            } else if (userGender == 2){
+		            	gender = "Female";
+		            } else{
+		            	gender = "";
+		            }
+		          %>
+	              <td><%= gender %></td>
 	              <td><%= ((UserDTO)request.getSession().getAttribute("user")).getAge() %></td>
 	              <td><%= ((UserDTO)request.getSession().getAttribute("user")).getBirth() %></td>
 	            </tr>

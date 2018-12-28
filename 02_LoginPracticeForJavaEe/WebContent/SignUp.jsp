@@ -83,7 +83,7 @@
 					</div>
 				</div>
 				
-				<input id="datepicker" width="276" />
+				<input name="birth" id="datepicker" width="276" />
 			    <script>
 			        $('#datepicker').datepicker({
 			            uiLibrary: 'bootstrap4'

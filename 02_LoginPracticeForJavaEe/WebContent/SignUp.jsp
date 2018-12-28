@@ -46,7 +46,7 @@
 	    	<form class="needs-validation">
 				<div class="mb-3">
 					<label for="username">User name</label>
-					<input type="text" class="form-control" id="uname" placeholder="Username">
+					<input type="text" class="form-control" id="uname" placeholder="Username" required>
 					<div class="invalid-feedback" style="width: 100%;">
 						Your username is required.
 			        </div>
@@ -54,7 +54,7 @@
 			   	
 			    <div class="mb-3">
 					<label for="inputPassword">Password</label>
-			  		<input type="password" id="password" class="form-control" placeholder="Password">
+			  		<input type="password" id="password" class="form-control" placeholder="Password" required>
 			    </div>		
 		        <hr class="mb-4">
 		        
@@ -63,8 +63,8 @@
 						<div class="input-group-prepend">
 					    	<label class="input-group-text" for="gender">Gender</label>
 					  	</div>
-						<select class="custom-select" id="gender">
-						    <option selected>Choose...</option>
+						<select class="custom-select" id="gender" required>
+						    <option value="">Choose...</option>
 						    <option value="1">Male</option>
 						    <option value="2">Female</option>
 						</select>

@@ -54,10 +54,19 @@ public class SignInServlet extends BasicServlet {
 		user.setUname(request.getParameter("uname"));
 		user.setPassword(request.getParameter("password"));
 		user.setGender(Byte.parseByte(request.getParameter("gender")));
-		user.setAge(request.getParameter("age")!=null?Integer.parseInt(request.getParameter("age")):0);
-		String birth = request.getParameter("birth");
-		if(birth != "" || birth != null) {
-			user.setBirth(birth);
+		int age = 0;
+		if(request.getParameter("age")!=null && request.getParameter("age")!="") {
+			age = Integer.parseInt(request.getParameter("age"));
+		}
+		user.setAge(age);
+		String birth = request.getParameter("birth");//06/18/1969
+		if(birth != "" && birth != null) {
+			String[] births = birth.split("/");
+			for(int i = 0; i <= births.length-1; i++) {
+				System.out.println(births[i]);
+			}
+			String newBirth = births[2] + "-" + births[0] + "-" + births[1];
+			user.setBirth(newBirth);
 		}
 		System.out.println(user.toString());
 		UserService addAccount = new UserServiceImpl();

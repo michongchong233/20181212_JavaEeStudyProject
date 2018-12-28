@@ -201,7 +201,6 @@ public class UserDaoImpl implements UserDao {
 			ps.setByte(3, user.getGender());
 			ps.setInt(4, user.getAge());
 			ps.setString(5, user.getBirth());
-			System.out.println(ps.toString());
 			updateNum = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

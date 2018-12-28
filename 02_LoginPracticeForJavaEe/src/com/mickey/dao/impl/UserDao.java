@@ -13,5 +13,5 @@ public interface UserDao {
 	
 	public List<UserDTO> getAllUser();
 	
-	public void signUpAccount(UserDTO user);
+	public int signUpAccount(UserDTO user);
 }

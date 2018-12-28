@@ -40,9 +40,33 @@ public class SignInServlet extends BasicServlet {
 		}else if(oper.equals("changePwd")) {//修改密碼
 			changePassword(request, response);
 		}else if(oper.equals("reg")) {//注冊
-			
+			addAccount(request, response);
 		}else {
 			System.out.println("沒有找到對應的操作符：" + oper);
+		}
+	}
+	
+	/**
+	 * 處理注冊用戶請求
+	 */
+	private void addAccount(HttpServletRequest request, HttpServletResponse response) {
+		UserDTO user = new UserDTO();
+		user.setUname(request.getParameter("uname"));
+		user.setPassword(request.getParameter("password"));
+		user.setGender(Byte.parseByte(request.getParameter("gender")));
+		user.setAge(request.getParameter("age")!=null?Integer.parseInt(request.getParameter("age")):0);
+		String birthYear = request.getParameter("birthYear");
+		String birthMonth = request.getParameter("birthMonth");
+		String birthDay = request.getParameter("birthDay");
+		if(birthYear != "" && birthMonth != "" && birthDay != "") {
+			user.setBirth(String.format("%d-%d-%d", Integer.parseInt(birthYear), Integer.parseInt(birthMonth), Integer.parseInt(birthDay)));
+		}
+		System.out.println(user.toString());
+		UserService addAccount = new UserServiceImpl();
+		if(addAccount.signUpAccount(user) > 0) {
+			System.out.println("新增戶成功");
+		} else {
+			System.out.println("新增戶失敗");
 		}
 	}
 	

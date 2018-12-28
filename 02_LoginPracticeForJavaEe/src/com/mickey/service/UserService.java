@@ -13,5 +13,5 @@ public interface UserService {
 	
 	public int changePassword(int uid, String newPassword);
 	
-	public void signUpAccount(UserDTO user);
+	public int signUpAccount(UserDTO user);
 }

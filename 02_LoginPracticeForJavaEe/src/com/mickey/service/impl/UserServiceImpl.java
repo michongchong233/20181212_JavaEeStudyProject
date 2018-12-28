@@ -40,7 +40,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void signUpAccount(UserDTO user) {
-		
+	public int signUpAccount(UserDTO user) {
+		UserDao signUpAccount = new UserDaoImpl();
+		return signUpAccount.signUpAccount(user);
 	}
 }

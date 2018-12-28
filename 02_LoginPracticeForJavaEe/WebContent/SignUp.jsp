@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <!-- DateTimePicker -->
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
     
     <style>
     	body {
@@ -43,10 +48,11 @@
 	
 	<div class="row justify-content-md-center">
 	    <div class="col-md-6 order-md-1">	
-	    	<form class="needs-validation">
+	    	<form class="needs-validation" action="SignIn" method="post">
+	  			<input type="hidden" name="oper" value="reg"><!-- 用於後端判斷執行內容 -->
 				<div class="mb-3">
 					<label for="username">User name</label>
-					<input type="text" class="form-control" id="uname" placeholder="Username" required>
+					<input type="text" class="form-control" name="uname" value="" id="uname" placeholder="Username" required>
 					<div class="invalid-feedback" style="width: 100%;">
 						Your username is required.
 			        </div>
@@ -54,7 +60,7 @@
 			   	
 			    <div class="mb-3">
 					<label for="inputPassword">Password</label>
-			  		<input type="password" id="password" class="form-control" placeholder="Password" required>
+			  		<input type="password" name="password" value="" id="password" class="form-control" placeholder="Password" required>
 			    </div>		
 		        <hr class="mb-4">
 		        
@@ -63,7 +69,7 @@
 						<div class="input-group-prepend">
 					    	<label class="input-group-text" for="gender">Gender</label>
 					  	</div>
-						<select class="custom-select" id="gender" required>
+						<select class="custom-select" name="gender" id="gender" required>
 						    <option value="">Choose...</option>
 						    <option value="1">Male</option>
 						    <option value="2">Female</option>
@@ -73,23 +79,19 @@
   						<div class="input-group-prepend">
     						<span class="input-group-text">Age</span>
   						</div>
-  						<input type="text" class="form-control" id="age" aria-label="Dollar amount (with dot and two decimal places)">
+  						<input type="text" class="form-control" name="age" value="" id="age" aria-label="Dollar amount (with dot and two decimal places)">
 					</div>
 				</div>
 				
-				<div class="mb-3">
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-						    <span class="input-group-text">Birth</span>
-						</div>
-						<input type="text" id="birthYear" placeholder="Year" aria-label="Year" class="form-control">
-						<input type="text" id="birthMonth" placeholder="Month" aria-label="Month" class="form-control">
-						<input type="text" id="birthDay" placeholder="Day" aria-label="Day" class="form-control">
-					</div>
-				</div>
+				<input id="datepicker" width="276" />
+			    <script>
+			        $('#datepicker').datepicker({
+			            uiLibrary: 'bootstrap4'
+			        });
+			    </script>
 	        	<hr class="mb-4">
 	        	
-	        	<button class="btn btn-primary btn-lg btn-block btn-myStyle" type="submit">Continue to checkout</button>
+	        	<button class="btn btn-lg btn-block btn-myStyle" type="submit">Continue to checkout</button>
 	      	</form>
 	      	<div class="row justify-content-md-center">
 	    		<a href="SignIn.jsp">Return to Sing In</a>

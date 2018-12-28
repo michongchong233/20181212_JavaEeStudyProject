@@ -79,7 +79,7 @@ public class UserDaoImpl implements UserDao {
 			ps = conn.prepareStatement(query);
 			//給占位符賦值
 			ps.setInt(1, uid);
-			//遍歷運行結果
+			//運行結果
 			rs = ps.executeQuery();
 			user = setUserInformation(rs);
 		} catch (SQLException e) {
@@ -188,12 +188,32 @@ public class UserDaoImpl implements UserDao {
 	 * 建立新用戶
 	 */
 	@Override
-	public void signUpAccount(UserDTO user) {
-		String query = "insert into dbtest.T41_UserImformation (uname, password, gender, age, birth) values (?, ?, ?, ?, ?),";
+	public int signUpAccount(UserDTO user) {
+		String query = "insert into dbtest.T41_UserImformation (uname, password, gender, age, birth) values (?, ?, ?, ?, ?);";
 		Connection conn = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
-		//TODO
-		
+		int updateNum = 0;
+		conn = makeConnection();
+		try {
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user.getUname());
+			ps.setString(2, user.getPassword());
+			ps.setByte(3, user.getGender());
+			ps.setInt(4, user.getAge());
+			ps.setString(5, user.getBirth());
+			System.out.println(ps.toString());
+			updateNum = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//關閉資源
+				if(ps != null) ps.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return updateNum;
 	}
 }

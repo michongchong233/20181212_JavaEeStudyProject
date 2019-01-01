@@ -33,8 +33,18 @@
 				判斷ajax狀態碼
 					判斷響應狀態碼
 						獲取響應內容(響應內容的格式)
-							處理響應內容(js操作文檔結構)
+							普通字符串
+							json【重點】
+							xml
+						處理響應內容(js操作文檔結構)
 			發送請求
+				get請求：get的請求實體排接在url後面，以?隔開，鍵值對
+					ajax.open("get", url);
+					ajax.send(null);
+				post請求：有單獨的請求實體
+					ajax.open("post", url);
+					ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");//和瀏覽器說用鍵值對的方式來讀取信息
+					ajax.send("uname=Mickey&pwd=233");
 		ajax的狀態碼
 			ajax狀態碼
 				readyState:0, 1, 2, 3, 4(表示響應內容被成功接收)

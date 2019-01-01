@@ -9,34 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mickey.T03_service.T55_UserService;
+import com.mickey.T03_serviceImpl.T55_UserServiceImpl;
+import com.mickey.T55_pojo.T55_User;
+
 /**
- * 學習、使用ajax技術
+ * Servlet implementation class T55_UserServlet
  */
 @WebServlet(
-		urlPatterns = { "/52_test" }, 
+		urlPatterns = { "/55_test" }, 
 		initParams = { 
-				@WebInitParam(name = "52_test", value = "52_test")
+				@WebInitParam(name = "55_test", value = "55_test")
 		})
-public class T52_AjaxServlet extends HttpServlet {
+public class T55_UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//設置請求和響應編碼格式
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		try {
-			Thread.sleep(5000);//等待五秒，用來測試ajax的loading圖示
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		//獲取請求信息
-		String uname = request.getParameter("uname");
-		String pwd = request.getParameter("pwd");
-		System.out.println(uname + ":" + pwd + ":" + request.getMethod());
+		String name = request.getParameter("name");
+		System.out.println("用戶請求信息為 --> " + name);
 		//處理請求信息
+		T55_UserService us = new T55_UserServiceImpl();//獲取業務層對象
+		T55_User u = us.getUserInfoService(name);//處理業務
 		//響應處理結果
-		response.getWriter().write(uname + pwd + "測試測試使用AJAX");
 	}
 
 }

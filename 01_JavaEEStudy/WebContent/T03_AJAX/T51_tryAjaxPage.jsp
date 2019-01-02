@@ -61,12 +61,12 @@
 			
 			//使用ajax
 			//創建ajax引擎對象
-				var ajax;
-				if(window.XMLHttpRequest){//火狐
-					ajax = new XMLHttpRequest();
-				}else if(window.ActiveXObject){//舊版IE
-					ajax = new ActiveXObject("Msxm12.XMLHTTP");
-				}
+			var ajax;
+			if(window.XMLHttpRequest){//火狐
+				ajax = new XMLHttpRequest();
+			}else if(window.ActiveXObject){//舊版IE
+				ajax = new ActiveXObject("Msxml2.XMLHTTP");
+			}
 			//覆寫onreadystatement函數
 			ajax.onreadystatechange = function(){
 				//判斷ajax狀態碼

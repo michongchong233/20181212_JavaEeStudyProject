@@ -1,4 +1,4 @@
-package com.mickey.T55_pojo;
+package com.mickey.T03_pojo;
 
 public class T55_User {
 	private int uid;

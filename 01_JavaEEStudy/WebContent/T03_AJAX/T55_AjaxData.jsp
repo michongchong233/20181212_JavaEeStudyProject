@@ -16,32 +16,30 @@
 	 <script type="text/javascript">
 	 	//獲取數據
 	 	function getData(){
-	 		if(){
-	 			
-	 		}
+			alert("ajax開始查詢任務");
 	 		//獲取用戶請求信息
-	 		var name = document.getElementById("uname");
+	 		var name = document.getElementById("uname").value;
 	 		//創建ajax引擎對象
 	 		var ajax;
-	 		if(window.XMLHttpRequest){
-	 			ajax = new XMLHttpRequest();
-	 		}else(window.ActiveXObject){
-	 			ajax = new ActiveXObject("Msxml2.XMLHTTP");
-	 		}
-	 		//覆寫onreadyStatechange
-	 		ajax.onreadystatechange = function(){
-	 			//判斷ajax狀態碼
-	 			if(ajax.readState==4){
-	 				//判斷響應狀態碼
-	 				if(ajax.status==200){
-	 					//獲取響應數據
-	 					//處理響應數據
-	 				}
-	 			}
-	 		}
-	 		//發送請求
-	 		ajax.open("get", "/01_JavaEEStudy/55_test?name=" + name);
-	 		ajax.send(null);
+			if(window.XMLHttpRequest){//火狐
+				ajax = new XMLHttpRequest();
+			}else if(window.ActiveXObject){//舊版IE
+				ajax = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+		 	//覆寫onreadyStatechange
+		 	ajax.onreadystatechange = function(){
+		 		//判斷ajax狀態碼
+		 		if(ajax.readState==4){
+		 			//判斷響應狀態碼
+		 			if(ajax.status==200){
+		 				//獲取響應數據
+		 				//處理響應數據
+		 			}
+		 		}
+		 	}
+		 	//發送請求
+		 	ajax.open("get", "/01_JavaEEStudy/55_test?name=" + name);
+		 	ajax.send(null);
 	 	}
 	 </script>
 </head>
@@ -61,6 +59,5 @@
 			<td>描述</td>
 		</tr>
 	</table>
-	 
 </body>
 </html>

@@ -34,14 +34,21 @@
 					判斷響應狀態碼
 						獲取響應內容(響應內容的格式)：將java的格式轉化成js可以看懂的格式
 							普通字符串
+								var result = ajax.responseText;
+				 				eval(result);//使用字符串的方式
 							json【重點】：其實就是講述數據按照json 的格式排版好的字符串，方便使用eval方法，將接受的字符串數據直接轉換為js的對象
+								var result = ajax.responseText;
+		 						eval("var u="+result);//使用json的方式
 								json格式：
 									var 對象名={
 										屬性名:屬性值,
 										屬性名:屬性值,
 										…
 									}
-							xml
+							xml：通過document對象將數據從xml中取出來，現在xml基本上都是用來寫配置文件用
+								response.setContentType("text/xml;charset=UTF-8");//記得要改響應編碼格式
+								var result = ajax.responseXML;//使用xml方式，返回document對象
+		 						alert(result.getElementsByTagName("uname")[0].innerHTML);//獲取元素對象
 						處理響應內容(js操作文檔結構)
 			發送請求
 				get請求：get的請求實體排接在url後面，以?隔開，鍵值對

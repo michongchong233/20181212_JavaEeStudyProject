@@ -42,7 +42,7 @@
 		 				ta.innerHTML = "";
 		 				
 		 				//表頭
-		 				var tr = ta.insertRow(0)//插入新的行
+		 				var tr = ta.insertRow(0);//插入新的行
 		 				var cell0 = tr.insertCell(0);
 		 				cell0.innerHTML = "編號";
 		 				var cell1 = tr.insertCell(1);
@@ -55,7 +55,7 @@
 		 				cell4.innerHTML = "描述";
 		 				
 		 				//查詢結果
-		 				var tr = ta.insertRow(1)//插入新的行
+		 				var tr = ta.insertRow(1);//插入新的行
 		 				var cell0 = tr.insertCell(0);
 		 				cell0.innerHTML = u.uid;
 		 				var cell1 = tr.insertCell(1);

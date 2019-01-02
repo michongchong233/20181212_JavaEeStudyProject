@@ -29,11 +29,43 @@
 		 	//覆寫onreadyStatechange
 		 	ajax.onreadystatechange = function(){
 		 		//判斷ajax狀態碼
-		 		if(ajax.readState==4){
+		 		if(ajax.readyState==4){
 		 			//判斷響應狀態碼
 		 			if(ajax.status==200){
 		 				//獲取響應數據
+		 				var result = ajax.responseText;
+		 				//eval(result);//使用字符串的方式
+		 				eval("var u="+result);//使用json的方式
+		 				alert(u.uname);
 		 				//處理響應數據
+		 				var ta = document.getElementById("ta");//獲取table對象
+		 				ta.innerHTML = "";
+		 				
+		 				//表頭
+		 				var tr = ta.insertRow(0)//插入新的行
+		 				var cell0 = tr.insertCell(0);
+		 				cell0.innerHTML = "編號";
+		 				var cell1 = tr.insertCell(1);
+		 				cell1.innerHTML = "名稱";
+		 				var cell2 = tr.insertCell(2);
+		 				cell2.innerHTML = "價格";
+		 				var cell3 = tr.insertCell(3);
+		 				cell3.innerHTML = "位置";
+		 				var cell4 = tr.insertCell(4);
+		 				cell4.innerHTML = "描述";
+		 				
+		 				//查詢結果
+		 				var tr = ta.insertRow(1)//插入新的行
+		 				var cell0 = tr.insertCell(0);
+		 				cell0.innerHTML = u.uid;
+		 				var cell1 = tr.insertCell(1);
+		 				cell1.innerHTML = u.uname;
+		 				var cell2 = tr.insertCell(2);
+		 				cell2.innerHTML = u.price;
+		 				var cell3 = tr.insertCell(3);
+		 				cell3.innerHTML = u.loc;
+		 				var cell4 = tr.insertCell(4);
+		 				cell4.innerHTML = u.desc;
 		 			}
 		 		}
 		 	}
@@ -50,7 +82,8 @@
 	<input type="text" name="uname" value="" id="uname">
 	<input type="button" value="Serch" onclick="getData()">
 	<hr>
-	<table border="1px">
+	<table border="1px" id="ta">
+		<!-- 
 		<tr>
 			<td>編號</td>
 			<td>名稱</td>
@@ -58,6 +91,7 @@
 			<td>位置</td>
 			<td>描述</td>
 		</tr>
+		 -->
 	</table>
 </body>
 </html>

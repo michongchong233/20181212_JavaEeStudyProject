@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.mickey.T03_pojo.T55_User;
 import com.mickey.T03_service.T55_UserService;
 import com.mickey.T03_serviceImpl.T55_UserServiceImpl;
@@ -35,7 +36,16 @@ public class T55_UserServlet extends HttpServlet {
 		//處理請求信息
 		T55_UserService us = new T55_UserServiceImpl();//獲取業務層對象
 		T55_User u = us.getUserInfoService(name);//處理業務
-		//響應處理結果
+		if(u != null) {
+			System.out.println(u.toString());
+		}
+		//響應處理結果(用字符串顯示)， 缺點：如果數據表順序改變也要改(難維護)，而且在後台申明js對象(不便代碼閱讀)
+		String responseText = "var u={};u.uid="+u.getUid()+";u.uname='"+u.getUname()+"';u.price="+u.getPrice()+";";
+		responseText = "{uname:'mickey',price:123}";//用字符串拼成json格式
+		responseText = new Gson().toJson(u);//使用gson拼json格式
+		System.out.println(responseText);
+		response.getWriter().write(responseText);
+		
 	}
 
 }

@@ -27,7 +27,7 @@ public class T55_UserDaoImpl implements T55_UserDao{
 			//������撠情
 			conn = DriverManager.getConnection(url, userName, userPassword);
 			//�撱漳ql�隞�
-			String sql = "select * from users where uname=?";
+			String sql = "select * from T55_UserImformation where uname=?";
 			//�撱漳ql�隞文�情
 			ps = conn.prepareStatement(sql);
 			//蝯血��泵鞈血��

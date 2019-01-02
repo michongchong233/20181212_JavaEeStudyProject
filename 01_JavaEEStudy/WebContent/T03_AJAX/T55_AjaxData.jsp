@@ -76,7 +76,7 @@
 	 </script>
 </head>
 <body>
-	<h3>T54_AjaxGetPost</h3>
+	<h3>T55_AjaxData</h3>
 	<hr>
 	佣兵名稱：
 	<input type="text" name="uname" value="" id="uname">

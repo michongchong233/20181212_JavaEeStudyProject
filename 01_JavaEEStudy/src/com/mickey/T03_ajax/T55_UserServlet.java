@@ -15,7 +15,7 @@ import com.mickey.T03_service.T55_UserService;
 import com.mickey.T03_serviceImpl.T55_UserServiceImpl;
 
 /**
- * Servlet implementation class T55_UserServlet
+ * ajax for string & json後端相關處理
  */
 @WebServlet(
 		urlPatterns = { "/55_test" }, 
@@ -45,7 +45,6 @@ public class T55_UserServlet extends HttpServlet {
 		responseText = new Gson().toJson(u);//使用gson拼json格式
 		System.out.println(responseText);
 		response.getWriter().write(responseText);
-		
 	}
 
 }

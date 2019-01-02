@@ -29,24 +29,19 @@
     <servlet-name>29_test</servlet-name>
     <url-pattern>/29_test</url-pattern>
   </servlet-mapping>
-  
-  <!-- 配置局部變量 -->
   <servlet>
     <servlet-name>30_test</servlet-name>
     <servlet-class>com.mickey.T01_serverlet.T30_ServletConfigTest</servlet-class>
     <init-param>
-    	<param-name>tryConfig</param-name>
-    	<param-value>utf-888</param-value>
+      <param-name>tryConfig</param-name>
+      <param-value>utf-888</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>30_test</servlet-name>
     <url-pattern>/30_test</url-pattern>
   </servlet-mapping>
-  
-  <!-- 設定開始頁面，項目底下無設定則吃tomcat中的設定 -->
-  <!-- http://localhost:8080/01_JavaEEStudy -->
   <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-   </welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
 </web-app>

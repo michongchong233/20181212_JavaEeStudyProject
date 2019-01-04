@@ -15,7 +15,7 @@ public class T55_UserDaoImpl implements T55_UserDao{
 	public T55_User getUserInfo(String name) {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 		String userName = "root";
-		String userPassword = "s70103ss";//閬���撌徘oot���Ⅳ
+		String userPassword = "1234";//閬���撌徘oot���Ⅳ
 		//���DBC撠情
 		Connection conn = null;
 		PreparedStatement ps = null;

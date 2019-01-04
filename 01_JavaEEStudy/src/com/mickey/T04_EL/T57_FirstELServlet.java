@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mickey.T04_pojo.Address;
-import com.mickey.T04_pojo.T04_User;
+import com.mickey.T04_pojo.T57_User;
 
 /**
 EL學習
@@ -47,7 +47,7 @@ public class T57_FirstELServlet extends HttpServlet {
 		//使用request作用域進行數據流流轉
 		request.setAttribute("str", "Study EL class");
 		//Object
-		request.setAttribute("user_01", new T04_User(5, "Amy", new Address("台灣", "新北市", "中山路")));
+		request.setAttribute("user_01", new T57_User(5, "Amy", new Address("台灣", "新北市", "中山路")));
 		//List<String>
 		List<String> list_01 = new ArrayList<String>();
 		list_01.add("Mickey");
@@ -56,10 +56,10 @@ public class T57_FirstELServlet extends HttpServlet {
 		list_01.add("Florance");
 		request.setAttribute("list_01", list_01);
 		//List<T04_User>
-		List<T04_User> list_02 = new ArrayList<T04_User>();
-		list_02.add(new T04_User(1, "Sherry", new Address("台灣", "台北市", "忠孝東路")));
-		list_02.add(new T04_User(1, "Danny", new Address("中國", "福建省", "四川路")));
-		list_02.add(new T04_User(1, "Mini", new Address("美國", "紐約", "華爾街")));
+		List<T57_User> list_02 = new ArrayList<T57_User>();
+		list_02.add(new T57_User(1, "Sherry", new Address("台灣", "台北市", "忠孝東路")));
+		list_02.add(new T57_User(1, "Danny", new Address("中國", "福建省", "四川路")));
+		list_02.add(new T57_User(1, "Mini", new Address("美國", "紐約", "華爾街")));
 		request.setAttribute("list_02", list_02);
 		//Map<Integer, String>
 		Map<String, String> map_01 = new HashMap<String, String>();
@@ -68,11 +68,17 @@ public class T57_FirstELServlet extends HttpServlet {
 		map_01.put("z", "Zhang");
 		request.setAttribute("map_01", map_01);
 		//Map<String, T04_User>
-		Map<String, T04_User> map_02 = new HashMap<String, T04_User>();
-		map_02.put("a", new T04_User(1, "Xu", new Address("台灣", "台中市", "福興街")));
-		map_02.put("b", new T04_User(2, "Zhou", new Address("日本", "北海道", "新秀路")));
-		map_02.put("c", new T04_User(3, "Chen", new Address("台灣", "高雄市", "泉全街")));
+		Map<String, T57_User> map_02 = new HashMap<String, T57_User>();
+		map_02.put("a", new T57_User(1, "Xu", new Address("台灣", "台中市", "福興街")));
+		map_02.put("b", new T57_User(2, "Zhou", new Address("日本", "北海道", "新秀路")));
+		map_02.put("c", new T57_User(3, "Chen", new Address("台灣", "高雄市", "泉全街")));
 		request.setAttribute("map_02", map_02);
+		//T60_空值判斷
+		request.setAttribute("T60_01", "");
+		request.setAttribute("T60_02", new T57_User());
+		request.setAttribute("T60_03", new ArrayList());
+		request.setAttribute("T60_04", new HashMap());
+		
 		//請求轉發
 		request.getRequestDispatcher("T04_EL/T57_TryFirstEL.jsp").forward(request, response);
 		

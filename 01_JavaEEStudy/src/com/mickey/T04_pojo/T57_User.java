@@ -1,6 +1,6 @@
 package com.mickey.T04_pojo;
 
-public class T04_User {
+public class T57_User {
 	private int uid;
 	private String uname;
 	private Address add;
@@ -39,7 +39,7 @@ public class T04_User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		T04_User other = (T04_User) obj;
+		T57_User other = (T57_User) obj;
 		if (uid != other.uid)
 			return false;
 		if (uname == null) {
@@ -49,13 +49,13 @@ public class T04_User {
 			return false;
 		return true;
 	}
-	public T04_User(int uid, String uname, Address add) {
+	public T57_User(int uid, String uname, Address add) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
 		this.add = add;
 	}
-	public T04_User() {
+	public T57_User() {
 		super();
 	}	
 	

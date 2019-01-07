@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <!-- 配置JSTL -->
   <jsp-config>
     <taglib>
       <taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
@@ -34,6 +35,8 @@
       <taglib-location>/WEB-INF/x-rt.tld</taglib-location>
     </taglib>
   </jsp-config>
+  
+  <!-- 配置過過濾器 -->
   <filter>
     <filter-name>65_filter</filter-name>
     <filter-class>com.mickey.T06_Filter.T65_FirstFilter</filter-class>
@@ -50,6 +53,13 @@
     <filter-name>66_01_filter</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+  
+  <!-- 配置監聽器 -->
+  <listener>
+  	<listener-class>com.mickey.T07_Listener.T68_FirstListener</listener-class>
+  </listener>
+  
+  <!-- 配置servlet -->
   <context-param>
     <param-name>myTestProgramName</param-name>
     <param-value>01_JavaEEStudy</param-value>

@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
 	private Connection makeConnection() {
 		String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC";
 		String userName = "root";
-		String userPassword = "s70103ss";
+		String userPassword = "1234";
 		//聲明JDBC對象
 		Connection conn = null;
 		try {

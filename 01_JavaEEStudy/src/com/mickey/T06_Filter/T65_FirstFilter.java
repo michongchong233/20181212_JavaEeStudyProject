@@ -47,6 +47,11 @@ public class T65_FirstFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		System.out.println("T65_FirstFilter-->doFilter()");
+		//設置請求編碼格式
+		request.setCharacterEncoding("UTF-8");
+		//設置響應編碼格式
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		chain.doFilter(request, response);
 		System.out.println("T65_FirstFilter-->doFilter()-->finish doFilter()");
 	}

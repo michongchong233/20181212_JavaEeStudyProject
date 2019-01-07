@@ -156,8 +156,9 @@
 			【N】63-JSTL学习-remove标签和if标签和choose标签学习<br>
 				http://localhost:8080/01_JavaEEStudy/63_test<br>
 			【】64-使用JSTL&EL表达式修改信息管理系统<br>
-			【S】65-过滤器学习-过滤器的概念介绍&第一个过滤器程序<br>
-			【S】66-过滤器学习-过滤器的配置方式和使用总结<br>
+			【N】65-过滤器学习-过滤器的概念介绍&第一个过滤器程序<br>
+				http://localhost:8080/01_JavaEEStudy/65_test.do<br>
+			【N】66-过滤器学习-过滤器的配置方式和使用总结<br>
 			【】67-过滤器学习-统一编码设置&session管理<br>
 			【】68-监听器学习-监听器的概念和作用和request监听器的使用<br>
 			【】69-监听器学习-监听器的session监听和application监听<br>

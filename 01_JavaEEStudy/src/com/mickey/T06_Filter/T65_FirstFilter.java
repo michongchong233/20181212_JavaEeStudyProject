@@ -15,6 +15,7 @@ Filter，過濾器
 使用：
 	創建一個實現了Filter接口的普通java類
 	覆寫接口方法init()、doFilter()、destory()
+		放行：chain.doFilter(request, response);
 	在web.xml中配置過濾器
 		<filter>
 		  <filter-name>65_filter</filter-name>

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><!-- 核心標簽 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %><!-- 格式化標簽 -->
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %><!-- sql標簽 -->
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %><!-- xml標簽 -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %><!-- JSTL函數 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +76,37 @@
 		%>
 	</p>
 	<c:set var="T62_01" value="12" scope="page"></c:set>
-	<c:if test="12>4"><p>JSTL: T62_01>4 --> true</p></c:if><%-- JSTL依賴於EL，只能從作用域獲取數據 --%>
+	<c:if test="${T62_01>4}"><p>JSTL: T62_01>4 --> true</p></c:if><%-- JSTL依賴於EL，只能從作用域獲取數據 --%>
+	<c:choose>
+		<c:when test="${T62_01>=10}"><p>JSTL: T62_01>=10</p></c:when>
+		<c:when test="${T62_01<10 && T62_01>=5}"><p>JSTL: 10>T62_01>=5</p></c:when>
+		<c:otherwise><p>JSTL: T62_01<5</p></c:otherwise>
+	</c:choose>
+	
+	<table border="1px">
+		<tr>
+			<td>uid</td>
+			<td>uname</td>
+			<td>pwd</td>
+			<td>lucky num</td>
+		</tr>
+		<c:forEach begin="1" end="4" step="1" var="num">
+			<tr>
+				<td><c:out value="${num}"></c:out></td>
+				<td>mickey</td>
+				<td>233</td>
+				<td>777</td>
+			</tr>
+		</c:forEach>
+	</table><br>
+	
+	<c:forEach items="${list_01}" var="T63_list">
+		${T63_list}<br>
+	</c:forEach><br>
+	
+	<c:forEach items="${map_01}" var="T63_map" varStatus="T63_mapProperties">
+		${T63_mapProperties.index}--${T63_mapProperties.count}--${T63_map.key}--${T63_map.value}--${T63_mapProperties.first}--${T63_mapProperties.last}<br>
+	</c:forEach>
 		
 </body>
 </html>

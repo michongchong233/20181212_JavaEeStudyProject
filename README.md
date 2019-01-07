@@ -140,15 +140,30 @@
 			【N】55-百战-ajax学习-ajax的响应数据格式<br>
 			【issue】56-百战-ajax学习-ajax的封装<br>
 		</p>
-<h4>2019-01-03	編寫課程筆記及上課綀習</h4>
+<h4>2019-01-04	編寫課程筆記及上課綀習</h4>
         <p>
 			【N】57-El表达式学习-servlet和jsp数据流转传统方式获取<br>
 			【N】58-El表达式学习-El表达式的概念和作用和基本语法<br>
 			【N】59-El表达式学习-El的作用域查找顺序和逻辑运算<br>
 			【N】60-El表达式学习-空值判断和获取请求头和cookie数据<br>
 			【N】61-JSTL标签库的介绍和使用以及out和set标签使用<br>
-			【】62-JSTL学习-remove标签和if标签和choose标签学习<br>
-			
+				http://localhost:8080/01_JavaEEStudy/63_test<br>
+			【S】62-JSTL学习-remove标签和if标签和choose标签学习<br>
+		</p>
+<h4>2019-01-07	編寫課程筆記及上課綀習</h4>
+        <p>
+			【N】62-JSTL学习-remove标签和if标签和choose标签学习<br>
+			【N】63-JSTL学习-remove标签和if标签和choose标签学习<br>
+				http://localhost:8080/01_JavaEEStudy/63_test<br>
+			【】64-使用JSTL&EL表达式修改信息管理系统<br>
+			【】65-过滤器学习-过滤器的概念介绍&第一个过滤器程序<br>
+			【】66-过滤器学习-过滤器的配置方式和使用总结<br>
+			【】67-过滤器学习-统一编码设置&session管理<br>
+			【】68-监听器学习-监听器的概念和作用和request监听器的使用<br>
+			【】69-监听器学习-监听器的session监听和application监听<br>
+			【】70-监听器学习-统计网站在线人数<br>
+			【】71-web技术体系架构精讲<br>
+			【】72-各门技术细节总复习_clip<br>
 		</p>
 		
 Servlet重定向路徑總結：

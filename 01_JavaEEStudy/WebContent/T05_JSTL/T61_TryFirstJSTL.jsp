@@ -35,8 +35,31 @@
 				<c:remove var="T61" scope="page"></c:remove>
 					作用：刪除作用域中指定鍵的數據，若無指定作用域則則除這個鍵全部作用域的值
 			邏輯標簽：
-				<c:if></c:if>
-				
+				<c:if test="${EL表達式}">
+					前端代碼
+				</c:if>
+					作用：進行邏輯判斷，相當於java代碼的單分支判斷
+					注意：邏輯判斷標簽需要依賴EL的邏輯運算，也就是表達式中涉及到的數據必須從作用域中獲取
+				<c:choose>
+					<c:when test="">前端代碼</c:when>
+					<c:when test="">前端代碼</c:when>
+					…
+					<c:otherwise>前端代碼</c:otherwise>
+				</c:choose>
+					作用：用來進行多條件的邏輯判斷，類似於java中的多分支語句
+					注意：條件成立只會執行一次，都不成來則執行otherwise
+			循環標簽：
+				<c:forEach begin="1" end="4" step="2">
+					循環體
+				</c:forEach>
+					作用：循環內容進行處理
+					使用：begin，聲明循環開始位值
+						end，聲明循環結束位置
+						step，設置步長
+						verStatus：聲明變量記錄每次循環體的數據(角標、次數、是否第一次循環、是否最後一次循環)
+							注意：數據存儲在作用域中，需要使用EL表達式
+						items：聲明遍歷對象，結合EL表達式獲取對象
+						var：聲明變量記錄每次循環的結果，存儲在作用域中，需要使用EL表達式獲取
 				
 	JSTL格式化標簽庫
 	JSTL SQL標簽庫
